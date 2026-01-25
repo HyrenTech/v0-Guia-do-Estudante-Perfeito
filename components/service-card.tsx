@@ -6,9 +6,10 @@ interface ServiceCardProps {
   title: string
   description: string
   icon: ReactNode
+  children?: ReactNode
 }
 
-export function ServiceCard({ title, description, icon }: ServiceCardProps) {
+export function ServiceCard({ title, description, icon, children }: ServiceCardProps) {
   return (
     <div className="group relative p-8 bg-card border border-border hover:border-primary transition-all duration-500">
       {/* Corner decorations */}
@@ -22,7 +23,8 @@ export function ServiceCard({ title, description, icon }: ServiceCardProps) {
           {icon}
         </div>
         <h3 className="font-serif text-2xl text-foreground mb-4">{title}</h3>
-        <p className="text-muted-foreground leading-relaxed">{description}</p>
+        {description && <p className="text-muted-foreground leading-relaxed">{description}</p>}
+        {children}
       </div>
 
       {/* Bottom accent line */}
