@@ -47,30 +47,7 @@ export function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            type="button"
-            className="lg:hidden text-foreground p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-expanded={mobileMenuOpen}
-            aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu"}
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              {mobileMenuOpen ? (
-                <path d="M18 6L6 18M6 6l12 12" />
-              ) : (
-                <path d="M3 12h18M3 6h18M3 18h18" />
-              )}
-            </svg>
-          </button>
+          
         </div>
 
         {/* Mobile Menu */}

@@ -25,16 +25,16 @@ export default function Home() {
             </div>
           </div>
 
-          <p className="text-primary tracking-[0.3em] uppercase text-sm mb-6">
+          <p className="text-primary tracking-[0.3em] uppercase text-sm mb-6 font-normal">
             O Guia de 31 Dias do Estudante de Direito Perfeito
           </p>
 
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl text-foreground mb-6 leading-tight text-balance">
-            A formação do estudante de Direito não é um detalhe. <span className="text-gold-gradient">É uma responsabilidade.</span>
+          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl text-foreground mb-6 leading-tight text-balance font-medium">
+            A formação do estudante de Direito não é um detalhe. <span className="text-gold-gradient font-bold">É uma responsabilidade.</span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
-            Este Guia nasce dessa premissa: tratar a formação em Direito como algo sério — e organizá-la em um método executável em 31 dias. Em 31 dias, com cerca de 10 minutos por dia, você percorre uma sequência clara e organizada de lições para sair do estudo automático e instalar consciência, método e direção.
+            Eu vou te ensinar como tratar a formação em Direito com seriedade. Em 31 dias, você percorrerá uma sequência clara e organizada de lições para sair do estudo automático e instalar consciência, método e direção.
           </p>
 
           {/* Quote */}
@@ -42,9 +42,7 @@ export default function Home() {
             &ldquo;A coisa mais importante que eu tenho a fazer é dar esta palestra.&rdquo;
           </blockquote>
 
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-            Não é mais conteúdo. Não é promessa de resultado. É um método aplicado à rotina real da faculdade.
-          </p>
+          
 
           {/* CTA */}
           <div className="mb-8">
@@ -54,13 +52,7 @@ export default function Home() {
           </div>
 
           {/* Microcopy */}
-          <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground mb-12">
-            <span>Acesso por 1 ano</span>
-            <span className="text-primary">•</span>
-            <span>Acesso liberado após a confirmação do pagamento</span>
-            <span className="text-primary">•</span>
-            <span>Assista pelo celular ou computador</span>
-          </div>
+          
 
           {/* Badges/Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
@@ -70,9 +62,7 @@ export default function Home() {
               "Acesso por 1 ano",
               "Certificado de conclusão (10 horas)"
             ].map((badge, i) => (
-              <div key={i} className="p-4 border border-border text-center">
-                <p className="text-sm text-foreground">{badge}</p>
-              </div>
+              null
             ))}
           </div>
 
@@ -107,7 +97,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
               <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">Objetivo</p>
-              <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance">
+              <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance font-medium">
                 O objetivo deste curso é, por meio da conscientização, torná-lo autônomo.
               </h2>
             </div>
@@ -224,25 +214,21 @@ export default function Home() {
           <ArtDecoDivider variant="fan" />
 
           <div className="relative text-center py-12">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 text-primary/20 font-serif text-9xl leading-none">
-              &ldquo;
-            </div>
-
-            <blockquote className="relative z-10">
-              <p className="font-serif text-xl md:text-2xl text-foreground leading-relaxed italic mb-8">
+                       <blockquote className="relative z-10">
+              <p className="font-serif text-xl leading-relaxed italic mb-8 text-primary font-semibold md:text-3xl">
                 Se o bom curso de Direito exigiria 50 anos para ser ministrado, como pode um aluno que só tem 5 não levar a sério a faculdade?
               </p>
             </blockquote>
 
             <p className="text-muted-foreground text-lg mb-6">
-              O Direito é vasto. O tempo é curto. Os cinco anos da faculdade não comportam improviso, descuido ou estudo desordenado.
+              Os cinco anos da faculdade não comportam improviso, descuido ou estudo desordenado.
             </p>
 
             <p className="text-primary italic mb-8">
-              Este Guia não cria urgência artificial — ele cria postura.
+              Chegou a hora de criar postura.
             </p>
 
-            <ul className="inline-flex flex-col items-start gap-3 text-muted-foreground">
+            <ul className="inline-flex flex-col items-start gap-3 text-muted-foreground text-center">
               <li className="flex items-center gap-3">
                 <div className="w-1.5 h-1.5 bg-primary rotate-45" />
                 <span>A faculdade é base, não detalhe;</span>
@@ -264,10 +250,8 @@ export default function Home() {
       <section className="py-24 px-6 bg-card/50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">Definição</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground text-balance">
-              O que é — e o que não é — este Guia
-            </h2>
+            
+            
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
