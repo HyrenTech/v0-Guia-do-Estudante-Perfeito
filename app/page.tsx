@@ -1,22 +1,29 @@
 import { ArtDecoSunburst } from "@/components/art-deco-sunburst"
 import { ArtDecoDivider } from "@/components/art-deco-divider"
-import { ServiceCard } from "@/components/service-card"
 import { Navbar } from "@/components/navbar"
 import { FAQAccordion } from "@/components/faq-accordion"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+
+const CHECKOUT_URL = "https://pay.hotmart.com/V103763457H"
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background scroll-smooth">
       <Navbar />
 
-      {/* Hero Section */}
+      {/* SEÇÃO 1 - HERO */}
       <section id="o-guia" className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden pt-20">
         <ArtDecoSunburst />
 
         <div className="relative z-10 text-center max-w-4xl mx-auto">
-          {/* Decorative top element */}
+          {/* Quote de abertura */}
+          <blockquote className="font-serif text-xl md:text-2xl text-primary italic mb-8">
+            &ldquo;A coisa mais importante que eu tenho a fazer é dar esta palestra.&rdquo;
+          </blockquote>
+          <p className="text-muted-foreground text-sm mb-10">— Prof. Costa Machado (USP)</p>
+
+          {/* Decorative element */}
           <div className="flex justify-center mb-8">
             <div className="flex items-center gap-4">
               <div className="w-16 h-px bg-primary" />
@@ -29,45 +36,36 @@ export default function Home() {
             O Guia de 31 Dias do Estudante de Direito Perfeito
           </p>
 
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl text-foreground mb-6 leading-tight text-balance font-medium">
-            A formação do estudante de Direito não é um detalhe. <span className="text-gold-gradient font-bold">É uma responsabilidade.</span>
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-6 leading-tight text-balance font-medium">
+            Você está desperdiçando sua Faculdade de Direito, <span className="text-gold-gradient font-bold">e nem percebe.</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
-            Eu vou te ensinar como tratar a formação em Direito com seriedade. Em 31 dias, você percorrerá uma sequência clara e organizada de lições para sair do estudo automático e instalar consciência, método e direção.
+          {/* Video */}
+          <div className="relative w-full max-w-3xl mx-auto aspect-video rounded-lg overflow-hidden shadow-2xl mb-10 border border-primary/20">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/NqgJrDv7yG8?autoplay=1&mute=1&controls=1&modestbranding=1"
+              title="Vídeo de Vendas"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            />
+          </div>
+
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-10">
+            Aprenda a extrair o máximo da faculdade de Direito com o método usado pelos estudantes que se destacam — e construa uma carreira jurídica sólida.
           </p>
 
-          {/* Quote */}
-          <blockquote className="font-serif text-xl md:text-2xl text-primary italic mb-8">
-            &ldquo;A coisa mais importante que eu tenho a fazer é dar esta palestra.&rdquo;
-          </blockquote>
-
-          
-
           {/* CTA */}
-          <div className="mb-8">
-            <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase text-sm px-8 py-6 transition-all duration-300">
-              <Link href="/checkout">Quero começar agora — Dia 1</Link>
+          <div className="mb-12">
+            <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase text-sm px-10 py-6 transition-all duration-300">
+              <Link href={CHECKOUT_URL}>Comece Agora</Link>
             </Button>
           </div>
 
-          {/* Microcopy */}
-          
-
-          {/* Badges/Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
-            {[
-              "31 vídeos (lições)",
-              "6 módulos (sequência lógica)",
-              "Acesso por 1 ano",
-              "Certificado de conclusão (10 horas)"
-            ].map((badge, i) => (
-              null
-            ))}
-          </div>
-
           {/* Decorative bottom element */}
-          <div className="flex justify-center mt-12">
+          <div className="flex justify-center mt-8">
             <div className="flex flex-col items-center gap-2">
               <div className="w-px h-16 bg-gradient-to-b from-transparent via-primary to-primary" />
               <div className="w-2 h-2 rotate-45 bg-primary" />
@@ -89,285 +87,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Autonomia Section */}
-      <section id="autonomia" className="py-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <ArtDecoDivider variant="stepped" />
-
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">Objetivo</p>
-              <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance font-medium">
-                O objetivo deste curso é, por meio da conscientização, torná-lo autônomo.
-              </h2>
-            </div>
-            <div className="space-y-6">
-              <p className="text-muted-foreground leading-relaxed text-lg">
-                O objetivo central deste Guia é dar autonomia ao estudante de Direito.
-              </p>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
-                  <span>Sair do estudo improvisado;</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
-                  <span>Aproveitar melhor aulas, professores e materiais;</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
-                  <span>Entender o curso como ele realmente é;</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
-                  <span>Construir uma base sólida para a faculdade e a carreira jurídica.</span>
-                </li>
-              </ul>
-              <p className="text-primary italic border-l-2 border-primary pl-4">
-                Aqui, consciência vem antes da técnica. Sem consciência, nenhum método se sustenta — e o estudo vira repetição sem direção.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Método Section */}
-      <section id="metodo" className="py-24 px-6 bg-card/50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">O Método</p>
-            <blockquote className="font-serif text-2xl md:text-3xl text-foreground italic mb-6">
-              &ldquo;Autonomia significa normas (nomos) para si próprio (auto).&rdquo;
-            </blockquote>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
-              Autonomia é saber conduzir o próprio estudo, mesmo quando ninguém está dizendo o que fazer.
-            </p>
-            <p className="text-muted-foreground max-w-3xl mx-auto">
-              Ao longo dos 31 dias, o Guia instala um sistema simples, em três camadas — em que cada etapa sustenta a seguinte e todas se acumulam ao longo do processo:
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <ServiceCard
-              title="Consciência"
-              description=""
-              icon={
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-12 h-12">
-                  <circle cx="12" cy="12" r="10" />
-                  <circle cx="12" cy="12" r="4" />
-                  <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
-                </svg>
-              }
-            >
-              <ul className="text-left text-sm text-muted-foreground space-y-2 mt-4">
-                <li>• Compreensão da engenharia da faculdade de Direito;</li>
-                <li>• Identificação de erros invisíveis do estudo automático;</li>
-                <li>• Leitura mais clara do papel do aluno no próprio aprendizado.</li>
-              </ul>
-            </ServiceCard>
-            <ServiceCard
-              title="Método"
-              description=""
-              icon={
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-12 h-12">
-                  <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" />
-                  <rect x="9" y="3" width="6" height="4" rx="1" />
-                  <path d="M9 12h6M9 16h6" />
-                </svg>
-              }
-            >
-              <ul className="text-left text-sm text-muted-foreground space-y-2 mt-4">
-                <li>• Atenção em aula;</li>
-                <li>• Registro adequado (cadernos, códigos, leitura);</li>
-                <li>• Consolidação do que foi estudado.</li>
-              </ul>
-            </ServiceCard>
-            <ServiceCard
-              title="Direção diária"
-              description=""
-              icon={
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-12 h-12">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 6v6l4 2" />
-                </svg>
-              }
-            >
-              <ul className="text-left text-sm text-muted-foreground space-y-2 mt-4">
-                <li>• Sequência fechada de 31 dias;</li>
-                <li>• Execução curta e objetiva;</li>
-                <li>• Sem depender de motivação.</li>
-              </ul>
-            </ServiceCard>
-          </div>
-
-          <div className="text-center mt-16">
-            <blockquote className="font-serif text-xl md:text-2xl text-primary italic">
-              &ldquo;Constância não nasce de vontade. Nasce de um plano pequeno que você cumpre.&rdquo;
-            </blockquote>
-          </div>
-        </div>
-      </section>
-
-      {/* Contraste Section */}
+      {/* SEÇÃO 2 - O PROBLEMA */}
       <section className="py-24 px-6">
         <div className="max-w-4xl mx-auto">
-          <ArtDecoDivider variant="fan" />
+          <ArtDecoDivider variant="stepped" />
 
-          <div className="relative text-center py-12">
-                       <blockquote className="relative z-10">
-              <p className="font-serif text-xl leading-relaxed italic mb-8 text-primary font-semibold md:text-3xl">
-                Se o bom curso de Direito exigiria 50 anos para ser ministrado, como pode um aluno que só tem 5 não levar a sério a faculdade?
-              </p>
-            </blockquote>
-
-            <p className="text-muted-foreground text-lg mb-6">
-              Os cinco anos da faculdade não comportam improviso, descuido ou estudo desordenado.
-            </p>
-
-            <p className="text-primary italic mb-8">
-              Chegou a hora de criar postura.
-            </p>
-
-            <ul className="inline-flex flex-col items-start gap-3 text-muted-foreground text-center">
-              <li className="flex items-center gap-3">
-                <div className="w-1.5 h-1.5 bg-primary rotate-45" />
-                <span>A faculdade é base, não detalhe;</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <div className="w-1.5 h-1.5 bg-primary rotate-45" />
-                <span>Estudar mal agora cobra juros depois;</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <div className="w-1.5 h-1.5 bg-primary rotate-45" />
-                <span>Consciência e método precisam começar cedo.</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* O que é / O que não é Section */}
-      <section className="py-24 px-6 bg-card/50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            
-            
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="relative p-8 bg-card border border-border">
-              <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary" />
-              <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-primary" />
-              <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-primary" />
-              <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary" />
-              
-              <h3 className="font-serif text-2xl text-foreground mb-6 text-center">Este Guia é:</h3>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
-                  <span>Um método em 31 dias;</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
-                  <span>Construído a partir de palestras reais do Prof. Costa Machado;</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
-                  <span>Organizado didaticamente pelo próprio professor;</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
-                  <span>Composto por vídeos curtos e objetivos.</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="relative p-8 bg-card border border-border">
-              <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary" />
-              <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-primary" />
-              <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-primary" />
-              <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary" />
-              
-              <h3 className="font-serif text-2xl text-foreground mb-6 text-center">Este Guia não é:</h3>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-muted-foreground mt-2 rotate-45 shrink-0" />
-                  <span>Curso de legislação, peças ou questões;</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-muted-foreground mt-2 rotate-45 shrink-0" />
-                  <span>Promessa de aprovação;</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-muted-foreground mt-2 rotate-45 shrink-0" />
-                  <span>Maratona de aulas;</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-muted-foreground mt-2 rotate-45 shrink-0" />
-                  <span>Atalho acadêmico.</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* O que você recebe Section */}
-      <section id="o-que-recebe" className="py-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <ArtDecoDivider variant="chevron" />
-          
-          <div className="text-center mb-16">
-            <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">Conteúdo</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground text-balance">
-              O que você recebe (na prática)
+          <div className="text-center mb-12">
+            <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">O Problema</p>
+            <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance font-medium">
+              O Que Ninguém Te Ensina na Faculdade
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12">
+          <div className="text-center mb-10">
+            <p className="text-xl text-foreground font-medium mb-8">
+              A maioria dos estudantes de Direito não sabe como estudar Direito.
+            </p>
+            <p className="text-lg text-muted-foreground mb-8">O resultado é previsível:</p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-12">
             {[
-              { value: "31", label: "vídeos (lições)" },
-              { value: "6", label: "módulos em sequência" },
-              { value: "1", label: "ano de acesso" },
-              { value: "10h", label: "certificado" }
-            ].map((item, i) => (
-              <div key={i} className="relative p-6 bg-card border border-border text-center">
-                <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-primary" />
-                <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-primary" />
-                <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-primary" />
-                <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-primary" />
-                <p className="font-serif text-3xl text-primary mb-2">{item.value}</p>
-                <p className="text-sm text-muted-foreground">{item.label}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase text-sm px-8 py-6 transition-all duration-300">
-              <Link href="/checkout">Quero começar — Dia 1</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* O que você desenvolve Section */}
-      <section className="py-24 px-6 bg-card/50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">Resultados</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground text-balance">
-              O que você desenvolve ao longo dos 31 dias
-            </h2>
-          </div>
-
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {[
-              "Mais autonomia nos estudos;",
-              "Mais clareza sobre o curso de Direito;",
-              "Melhor aproveitamento das aulas;",
-              "Hábito de registrar e consolidar conteúdos;",
-              "Uso mais consciente de códigos e materiais;",
-              "Direção diária para estudar sem improviso."
+              "Formam-se sem base sólida",
+              "Levam anos para conquistar aprovações",
+              "Permanecem em posições aquém do seu potencial",
+              "Não alcançam a carreira que imaginaram no primeiro dia de aula"
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-3 p-4 border border-border bg-card">
                 <div className="w-2 h-2 bg-primary mt-1.5 rotate-45 shrink-0" />
@@ -375,30 +119,305 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          <div className="relative text-center py-12">
+            <blockquote className="relative z-10">
+              <p className="font-serif text-xl md:text-2xl leading-relaxed italic mb-6 text-primary font-semibold">
+                &ldquo;Se o bom curso de Direito exigiria 50 anos para ser ministrado, como pode um aluno que só tem 5 não levar a sério a faculdade?&rdquo;
+              </p>
+              <cite className="text-muted-foreground text-sm">— Prof. Costa Machado</cite>
+            </blockquote>
+          </div>
+
+          <p className="text-center text-lg text-muted-foreground mb-8">
+            Os cinco anos da faculdade não comportam improviso, descuido ou estudo desordenado.
+          </p>
+
+          <p className="text-center text-primary italic text-lg mb-10">
+            Mas existe um caminho diferente.
+          </p>
+
+          <div className="text-center">
+            <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase text-sm px-10 py-6 transition-all duration-300">
+              <Link href={CHECKOUT_URL}>Comece Agora</Link>
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* Depoimentos Section */}
-      <section className="py-24 px-6">
-        <div className="max-w-6xl mx-auto">
+      {/* SEÇÃO 3 - A SOLUÇÃO */}
+      <section className="py-24 px-6 bg-card/50">
+        <div className="max-w-4xl mx-auto">
           <ArtDecoDivider variant="fan" />
 
-          <div className="text-center mb-16">
-            <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">Depoimentos</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6 text-balance">
-              O que alunos relatam após as palestras
+          <div className="text-center mb-12">
+            <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">A Solução</p>
+            <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance font-medium">
+              O Que Separa os Estudantes Bem-Sucedidos dos Demais
             </h2>
-            <p className="text-muted-foreground max-w-3xl mx-auto">
-              Os relatos abaixo vêm de estudantes que participaram das palestras do Prof. Costa Machado — experiências reais que deram origem ao conteúdo, à abordagem e à estrutura deste Guia.
+          </div>
+
+          <p className="text-lg text-muted-foreground text-center mb-10 max-w-3xl mx-auto">
+            Durante 35 anos lecionando na USP — a catedral do Direito brasileiro — o Prof. Costa Machado identificou o padrão que distingue os juristas de excelência daqueles que se perdem no caminho.
+          </p>
+
+          <div className="text-center mb-10">
+            <p className="text-xl text-foreground font-medium mb-4">
+              Não é inteligência. Não é sorte. Não é talento inato.
+            </p>
+            <p className="text-2xl text-gold-gradient font-serif font-bold">
+              É método consciente aplicado desde cedo.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="relative text-center py-8 mb-10">
+            <blockquote className="relative z-10">
+              <p className="font-serif text-xl md:text-2xl leading-relaxed italic text-primary">
+                &ldquo;O objetivo deste curso é o de, por meio da conscientização, torná-lo autônomo.&rdquo;
+              </p>
+              <cite className="text-muted-foreground text-sm">— Prof. Costa Machado (USP)</cite>
+            </blockquote>
+          </div>
+
+          <p className="text-lg text-muted-foreground text-center mb-8">
+            E agora, pela primeira vez, esse conhecimento está disponível em formato aplicável:
+          </p>
+
+          <div className="flex justify-center gap-6 flex-wrap mb-10">
             {[
-              "Fui aluna do Costa Machado! E sempre ouço: que oportunidade você teve, que privilégio!",
+              { value: "31", label: "dias" },
+              { value: "10", label: "minutos por dia" },
+              { value: "1", label: "sequência estruturada" }
+            ].map((item, i) => (
+              <div key={i} className="text-center px-6 py-4 border border-primary/30 bg-card">
+                <p className="font-serif text-3xl text-primary font-bold">{item.value}</p>
+                <p className="text-sm text-muted-foreground">{item.label}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase text-sm px-10 py-6 transition-all duration-300">
+              <Link href={CHECKOUT_URL}>Comece Agora</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* SEÇÃO 4 - O MÉTODO */}
+      <section id="metodo" className="py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <ArtDecoDivider variant="chevron" />
+
+          <div className="text-center mb-12">
+            <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">O Método</p>
+            <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance font-medium">
+              Por Que 31 Dias?
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Porque transformação real não vem de maratonas motivacionais de fim de semana. Vem de construções diárias que reprogramam como seu cérebro processa Direito.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {[
+              {
+                week: "Semana 1",
+                days: "Dias 1-7",
+                title: "Consciência",
+                description: "Compreensão da engenharia da faculdade de Direito. Identificação dos erros invisíveis do estudo automático."
+              },
+              {
+                week: "Semana 2",
+                days: "Dias 8-15",
+                title: "Método",
+                description: "Instalação da arquitetura mental adequada. Atenção em aula e registro funcional."
+              },
+              {
+                week: "Semana 3",
+                days: "Dias 16-23",
+                title: "Consolidação",
+                description: "Implementação do sistema que torna conhecimento permanente. Uso consciente de códigos e materiais."
+              },
+              {
+                week: "Semana 4+",
+                days: "Dias 24-31",
+                title: "Autonomia",
+                description: "Direção própria consolidada. Você estuda com propósito, não por impulso. Método que independe de motivação."
+              }
+            ].map((item, i) => (
+              <div key={i} className="relative p-6 bg-card border border-border">
+                <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-primary" />
+                <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-primary" />
+                <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-primary" />
+                <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-primary" />
+                
+                <p className="text-primary text-sm tracking-wider uppercase mb-1">{item.week}</p>
+                <p className="text-muted-foreground text-xs mb-3">{item.days}</p>
+                <h3 className="font-serif text-xl text-foreground mb-3">{item.title}</h3>
+                <p className="text-sm text-muted-foreground">{item.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-center text-lg text-muted-foreground italic">
+            Cada dia constrói sobre o anterior. Sem excessos. Apenas o essencial.
+          </p>
+        </div>
+      </section>
+
+      {/* SEÇÃO 5 - TRANSFORMAÇÃO */}
+      <section className="py-24 px-6 bg-card/50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">Transformação</p>
+            <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance font-medium">
+              O Que Muda em 31 Dias
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* ANTES */}
+            <div className="relative p-8 bg-card border border-border">
+              <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-muted-foreground/50" />
+              <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-muted-foreground/50" />
+              <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-muted-foreground/50" />
+              <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-muted-foreground/50" />
+              
+              <h3 className="font-serif text-2xl text-muted-foreground mb-6 text-center">Antes (Você Hoje)</h3>
+              <ul className="space-y-4 text-muted-foreground">
+                {[
+                  "Assiste aulas sem saber como prestar atenção",
+                  "Faz anotações que nunca revisita",
+                  "Estuda na véspera e esquece rapidamente",
+                  "Não sabe se está progredindo ou apenas ocupado",
+                  "Depende de motivação constante"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 bg-muted-foreground mt-2 rotate-45 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* DEPOIS */}
+            <div className="relative p-8 bg-card border border-primary">
+              <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary" />
+              <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-primary" />
+              <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-primary" />
+              <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary" />
+              
+              <h3 className="font-serif text-2xl text-primary mb-6 text-center">Depois (Você Transformado)</h3>
+              <ul className="space-y-4 text-foreground">
+                {[
+                  "Aproveita cada aula com máxima eficiência",
+                  "Registra informação que se torna conhecimento durável",
+                  "Consolida aprendizado enquanto os outros esquecem",
+                  "Opera com clareza, sem depender de orientação externa",
+                  "Autonomia jurídica real — você conduz seu próprio caminho"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="relative text-center py-8 mb-10">
+            <blockquote className="relative z-10">
+              <p className="font-serif text-xl md:text-2xl leading-relaxed italic text-primary">
+                &ldquo;Autonomia significa normas (nomos) para si próprio (auto). O aluno consciente e, por isso, autônomo, não precisa de ninguém para conduzi-lo no caminho do conhecimento.&rdquo;
+              </p>
+              <cite className="text-muted-foreground text-sm">— Prof. Costa Machado</cite>
+            </blockquote>
+          </div>
+
+          <div className="text-center">
+            <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase text-sm px-10 py-6 transition-all duration-300">
+              <Link href={CHECKOUT_URL}>Comece Agora</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* SEÇÃO 6 - O INVESTIMENTO */}
+      <section className="py-24 px-6">
+        <div className="max-w-4xl mx-auto">
+          <ArtDecoDivider variant="stepped" />
+
+          <div className="text-center mb-12">
+            <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">Investimento</p>
+            <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance font-medium">
+              O Custo Real de Estudar Sem Método
+            </h2>
+          </div>
+
+          <p className="text-lg text-muted-foreground text-center mb-10">
+            Investimento médio em uma faculdade de Direito (5 anos):
+          </p>
+
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-10">
+            {[
+              { label: "Mensalidades", value: "R$ 150.000+" },
+              { label: "Livros e materiais", value: "R$ 15.000+" },
+              { label: "Tempo dedicado", value: "10.000+ horas" },
+              { label: "Total", value: "R$ 165.000+" }
+            ].map((item, i) => (
+              <div key={i} className="text-center p-4 border border-border bg-card">
+                <p className="text-sm text-muted-foreground mb-1">{item.label}</p>
+                <p className="font-serif text-lg text-foreground font-medium">{item.value}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-lg text-muted-foreground text-center mb-10">
+            Se você está estudando sem direção, esse investimento não gerará o retorno esperado.
+          </p>
+
+          <div className="relative p-8 md:p-12 border border-primary bg-card max-w-xl mx-auto mb-10">
+            <div className="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-primary" />
+            <div className="absolute -top-2 -right-2 w-8 h-8 border-t-2 border-r-2 border-primary" />
+            <div className="absolute -bottom-2 -left-2 w-8 h-8 border-b-2 border-l-2 border-primary" />
+            <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-primary" />
+
+            <div className="text-center">
+              <p className="text-muted-foreground mb-2">Este Guia:</p>
+              <p className="font-serif text-5xl text-gold-gradient font-bold mb-4">R$ 97</p>
+              <p className="text-muted-foreground text-sm">
+                Porque um único princípio bem aplicado — sobre como consolidar matéria ou usar códigos adequadamente — vale mais que semestres inteiros de estudo desordenado.
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase text-sm px-10 py-6 transition-all duration-300">
+              <Link href={CHECKOUT_URL}>Comece Agora</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* SEÇÃO 7 - PROVA SOCIAL */}
+      <section className="py-24 px-6 bg-card/50">
+        <div className="max-w-6xl mx-auto">
+          <ArtDecoDivider variant="fan" />
+
+          <div className="text-center mb-12">
+            <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">Depoimentos</p>
+            <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6 text-balance">
+              O Que Alunos Relatam
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+            {[
+              "Fui aluna do Costa Machado. Todo mundo me diz: que privilégio você teve.",
               "Simplesmente a melhor palestra da minha vida. Direito é vida.",
               "Palestrante nota máxima. É uma experiência que vale muito a pena.",
-              "Foi um curso maravilhoso. Obrigada por compartilhar seus conhecimentos.",
+              "Foi um curso maravilhoso. Gratidão por compartilhar seus conhecimentos.",
               "Ouvir seus conselhos foi fantástico. Gratidão por aquele momento."
             ].map((testimonial, i) => (
               <div key={i} className="relative p-6 bg-card border border-border">
@@ -410,16 +429,22 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          <p className="text-center text-muted-foreground italic">
+            Esses relatos refletem transformações concretas em aprovações, carreiras e domínio técnico.
+          </p>
         </div>
       </section>
 
-      {/* Professor Section */}
-      <section id="professor" className="py-24 px-6 bg-card/50">
+      {/* SEÇÃO 8 - AUTORIDADE */}
+      <section id="professor" className="py-24 px-6">
         <div className="max-w-4xl mx-auto">
+          <ArtDecoDivider variant="chevron" />
+
           <div className="text-center mb-12">
-            <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">Instrutor</p>
+            <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">Autoridade</p>
             <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-2 text-balance">
-              Quem conduz o Guia
+              Quem Construiu Este Sistema
             </h2>
           </div>
 
@@ -429,8 +454,8 @@ export default function Home() {
             <div className="absolute -bottom-2 -left-2 w-8 h-8 border-b-2 border-l-2 border-primary" />
             <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-primary" />
 
-            <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-6 text-center">
-              Professor Costa Machado
+            <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-8 text-center">
+              Prof. Costa Machado
             </h3>
 
             <ul className="space-y-3 text-muted-foreground mb-8">
@@ -452,91 +477,192 @@ export default function Home() {
               </li>
             </ul>
 
-            <p className="text-sm text-muted-foreground italic text-center border-t border-border pt-6">
-              O Guia se baseia na palestra &ldquo;A consciência que o aluno de Direito não tem&rdquo;, apresentada a milhares de estudantes em universidades brasileiras.
+            <p className="text-muted-foreground text-center mb-6">
+              Ele acompanhou a formação de milhares de alunos. Os que se destacaram e os que ficaram pelo caminho.
             </p>
+            <p className="text-primary italic text-center font-medium">
+              E identificou exatamente o que distingue os dois grupos.
+            </p>
+            <p className="text-muted-foreground text-center mt-4">
+              Este Guia é esse conhecimento organizado em forma aplicável.
+            </p>
+          </div>
+
+          <div className="text-center mt-10">
+            <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase text-sm px-10 py-6 transition-all duration-300">
+              <Link href={CHECKOUT_URL}>Comece Agora</Link>
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Oferta Section */}
-      <section id="oferta" className="py-24 px-6 relative overflow-hidden">
+      {/* SEÇÃO 9 - OFERTA */}
+      <section id="oferta" className="py-24 px-6 bg-card/50 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <ArtDecoSunburst />
         </div>
 
         <div className="max-w-3xl mx-auto relative z-10">
-          <div className="text-center mb-12">
-            <ArtDecoDivider variant="chevron" />
-            <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">Investimento</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6 text-balance">Oferta</h2>
+          <div className="text-center mb-8">
+            <p className="text-primary tracking-[0.3em] uppercase text-sm mb-4 font-medium">
+              Construindo Seu Futuro Jurídico do Zero
+            </p>
           </div>
 
-          <div className="relative p-8 md:p-12 border border-border bg-card">
-            <div className="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-primary" />
-            <div className="absolute -top-2 -right-2 w-8 h-8 border-t-2 border-r-2 border-primary" />
-            <div className="absolute -bottom-2 -left-2 w-8 h-8 border-b-2 border-l-2 border-primary" />
-            <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-primary" />
+          <div className="relative p-8 md:p-12 border-2 border-primary bg-card">
+            <div className="absolute -top-3 -left-3 w-10 h-10 border-t-2 border-l-2 border-primary" />
+            <div className="absolute -top-3 -right-3 w-10 h-10 border-t-2 border-r-2 border-primary" />
+            <div className="absolute -bottom-3 -left-3 w-10 h-10 border-b-2 border-l-2 border-primary" />
+            <div className="absolute -bottom-3 -right-3 w-10 h-10 border-b-2 border-r-2 border-primary" />
+
+            <h3 className="font-serif text-2xl text-foreground mb-8 text-center">
+              Tudo o que você receberá:
+            </h3>
+
+            <ul className="space-y-4 mb-10">
+              {[
+                "31 Vídeos Estratégicos — Cada um é uma etapa na construção da sua autonomia",
+                "6 Módulos de Transformação — Consciência, Método, Aula, Registro, Consolidação e Direção",
+                "Sistema Completo de Estudo — Como aproveitar cada aula, usar códigos corretamente e consolidar conhecimento",
+                "Acesso por 1 Ano — Tempo suficiente para implementar, revisar e dominar",
+                "Certificado de 10 Horas — Comprovação de conclusão",
+                "Garantia de 7 Dias — Teste sem risco. Se não for adequado, devolvemos integralmente"
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="text-primary font-bold text-lg">✓</span>
+                  <span className="text-foreground">{item}</span>
+                </li>
+              ))}
+            </ul>
 
             <div className="text-center">
-              <p className="font-serif text-4xl md:text-5xl text-gold-gradient mb-2">R$ 97,00</p>
-              <p className="text-muted-foreground mb-2">à vista</p>
+              <p className="font-serif text-5xl md:text-6xl text-gold-gradient font-bold mb-2">R$ 97</p>
               <p className="text-muted-foreground mb-8">ou 12x de R$ 9,68</p>
 
-              <p className="text-foreground mb-8">
-                Inclui acesso às aulas e materiais pelo período de 1 ano.
-              </p>
-
-              <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase text-sm px-8 py-6 transition-all duration-300 mb-6">
-                <Link href="/checkout">Quero começar agora — Dia 1</Link>
+              <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase px-12 py-7 text-base transition-all duration-300 mb-6">
+                <Link href={CHECKOUT_URL}>Comece Agora</Link>
               </Button>
 
-              <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
-                <span>Compra segura</span>
-                <span className="text-primary">•</span>
-                <span>Acesso liberado após o pagamento</span>
-              </div>
+              <p className="text-sm text-muted-foreground">
+                Acesso imediato • Transformação em 31 dias • Autonomia para toda a carreira
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Garantia Section */}
-      <section className="py-24 px-6 bg-card/50">
-        <div className="max-w-2xl mx-auto">
-          <div className="relative p-8 md:p-12 border border-primary text-center">
-            <div className="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-primary" />
-            <div className="absolute -top-2 -right-2 w-8 h-8 border-t-2 border-r-2 border-primary" />
-            <div className="absolute -bottom-2 -left-2 w-8 h-8 border-b-2 border-l-2 border-primary" />
-            <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-primary" />
+      {/* SEÇÃO GARANTIA - 7 DIAS */}
+      <section className="py-20 px-6 bg-background">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            {/* Badge Visual */}
+            <div className="flex justify-center">
+              <div className="relative w-48 h-48 md:w-56 md:h-56">
+                {/* Outer ring */}
+                <div className="absolute inset-0 rounded-full border-4 border-primary" />
+                {/* Inner ring */}
+                <div className="absolute inset-3 rounded-full border-2 border-primary/60" />
+                {/* Content */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <span className="text-primary text-sm tracking-widest uppercase font-medium">Dias de</span>
+                  <span className="font-serif text-6xl md:text-7xl text-gold-gradient font-bold leading-none">7</span>
+                  <span className="text-primary text-sm tracking-widest uppercase font-medium">Garantia</span>
+                </div>
+              </div>
+            </div>
 
-            <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-4">Garantia de 7 dias</h3>
-            <p className="text-muted-foreground">
-              Experimente por 7 dias. Se não for para você, solicite o reembolso dentro do prazo.
+            {/* Text Content */}
+            <div>
+              <h3 className="font-serif text-3xl md:text-4xl text-foreground mb-6">
+                7 dias de garantia
+              </h3>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Você pode acessar o produto, assistir as aulas, ler o manual e, se não ficar satisfeito, basta solicitar o reembolso e devolveremos todo seu dinheiro — <strong className="text-foreground">sem perguntas.</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SEÇÃO 10 - DECISÃO FINAL */}
+      <section className="py-24 px-6 bg-card/50">
+        <div className="max-w-4xl mx-auto">
+          <ArtDecoDivider variant="stepped" />
+
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance font-medium">
+              A Escolha é Clara
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* Caminho A */}
+            <div className="relative p-8 bg-card border border-muted-foreground/30">
+              <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-muted-foreground/30" />
+              <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-muted-foreground/30" />
+              <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-muted-foreground/30" />
+              <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-muted-foreground/30" />
+              
+              <h3 className="font-serif text-2xl text-muted-foreground mb-4 text-center">Caminho A:</h3>
+              <p className="text-muted-foreground text-center">
+                Continuar estudando sem direção. Formar-se na média. Levar anos para conquistar o que os bem preparados conquistam em meses.
+              </p>
+            </div>
+
+            {/* Caminho B */}
+            <div className="relative p-8 bg-card border-2 border-primary">
+              <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary" />
+              <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-primary" />
+              <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-primary" />
+              <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary" />
+              
+              <h3 className="font-serif text-2xl text-primary mb-4 text-center">Caminho B:</h3>
+              <p className="text-foreground text-center">
+                Implementar o método. Compreender a engenharia. Tornar-se o estudante que professores reconhecem, bancas aprovam e escritórios valorizam.
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center mb-10">
+            <p className="text-xl text-foreground mb-6">
+              A diferença entre A e B? <strong className="text-primary">31 dias e R$ 97.</strong>
+            </p>
+            <p className="text-lg text-muted-foreground mb-4">
+              Você tem 5 anos de faculdade pela frente.
+            </p>
+            <p className="text-lg text-muted-foreground mb-6">
+              Cada dia sem método é tempo e investimento desperdiçados.
+            </p>
+            <p className="text-primary italic text-lg mb-2">
+              A pergunta não é &ldquo;vale a pena?&rdquo;
+            </p>
+            <p className="text-primary font-medium text-xl">
+              A pergunta é: &ldquo;quanto estou perdendo ao não fazer isso?&rdquo;
+            </p>
+          </div>
+
+          <div className="text-center mb-10">
+            <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase px-12 py-7 text-base transition-all duration-300">
+              <Link href={CHECKOUT_URL}>Comece Agora</Link>
+            </Button>
+          </div>
+
+          <div className="text-center border-t border-border pt-10">
+            <p className="text-muted-foreground italic mb-4">
+              <strong>P.S.:</strong> Enquanto você pondera, outros que compreendem a importância da preparação já começaram.
+            </p>
+            <p className="text-foreground">
+              Em 31 dias, a diferença será perceptível.
+            </p>
+            <p className="text-primary font-medium">
+              Em 5 anos, será significativa.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="py-24 px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <ArtDecoDivider variant="stepped" />
-
-          <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6 text-balance">
-            Comece agora com direção
-          </h2>
-          <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
-            Se você quer parar de estudar no automático e assumir o controle da sua formação jurídica, este Guia foi feito para você.
-          </p>
-          <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase text-sm px-8 py-6 transition-all duration-300">
-            <Link href="/checkout">Quero começar agora — Dia 1</Link>
-          </Button>
-        </div>
-      </section>
-
       {/* FAQ Section */}
-      <section id="faq" className="py-24 px-6 bg-card/50">
+      <section id="faq" className="py-24 px-6">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">Dúvidas</p>
@@ -567,11 +693,6 @@ export default function Home() {
               <Link href="/privacidade" className="hover:text-primary transition-colors">Política de Privacidade</Link>
               <Link href="/termos" className="hover:text-primary transition-colors">Termos de Uso</Link>
               <Link href="/suporte" className="hover:text-primary transition-colors">Suporte/Contato</Link>
-            </div>
-
-            <div className="text-sm text-muted-foreground text-center">
-              <p>suporte@SEUDOMINIO.com</p>
-              <p>WhatsApp: +55 (11) 99999-9999</p>
             </div>
 
             <p className="text-muted-foreground text-sm text-center">
