@@ -4,14 +4,14 @@ import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
+const CHECKOUT_URL = "https://pay.hotmart.com/V103763457H"
+
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const navLinks = [
     { label: "O Guia", href: "#o-guia" },
-    { label: "Autonomia", href: "#autonomia" },
     { label: "O Método", href: "#metodo" },
-    { label: "O que você recebe", href: "#o-que-recebe" },
     { label: "Professor", href: "#professor" },
     { label: "Oferta", href: "#oferta" },
     { label: "FAQ", href: "#faq" },
@@ -42,12 +42,26 @@ export function Navbar() {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase text-xs px-6 transition-all duration-300">
-              <Link href="/checkout">Quero começar — Dia 1</Link>
+              <Link href={CHECKOUT_URL}>Comece Agora</Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          
+          <button
+            className="lg:hidden p-2 text-foreground hover:text-primary transition-colors"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M3 12h18M3 6h18M3 18h18" />
+              </svg>
+            )}
+          </button>
         </div>
 
         {/* Mobile Menu */}
@@ -65,7 +79,7 @@ export function Navbar() {
                 </Link>
               ))}
               <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase text-xs px-6 mt-2 transition-all duration-300 w-full">
-                <Link href="/checkout">Quero começar — Dia 1</Link>
+                <Link href={CHECKOUT_URL}>Comece Agora</Link>
               </Button>
             </div>
           </div>
