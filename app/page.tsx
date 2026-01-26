@@ -81,12 +81,11 @@ export default function Home() {
           </div>
         </div>
 
-          {/* Decorative bottom element */}
-          <div className="flex justify-center mt-12">
-            <div className="flex flex-col items-center gap-2">
-              <div className="w-px h-16 bg-gradient-to-b from-transparent via-primary to-primary" />
-              <div className="w-2 h-2 rotate-45 bg-primary" />
-            </div>
+        {/* Decorative bottom element */}
+        <div className="flex justify-center mt-12 absolute bottom-24">
+          <div className="flex flex-col items-center gap-2">
+            <div className="w-px h-16 bg-gradient-to-b from-transparent via-primary to-primary" />
+            <div className="w-2 h-2 rotate-45 bg-primary" />
           </div>
         </div>
 
