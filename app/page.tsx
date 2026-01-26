@@ -12,59 +12,74 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section id="o-guia" className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden pt-20">
+      <section id="o-guia" className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden pt-20 pb-20">
         <ArtDecoSunburst />
 
-        <div className="relative z-10 text-center max-w-4xl mx-auto">
-          {/* Decorative top element */}
-          <div className="flex justify-center mb-8">
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-px bg-primary" />
-              <div className="w-3 h-3 rotate-45 border border-primary" />
-              <div className="w-16 h-px bg-primary" />
+        <div className="relative z-10 w-full grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          {/* Left Content */}
+          <div className="text-center md:text-left">
+            {/* Decorative top element */}
+            <div className="flex justify-center md:justify-start mb-8">
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-px bg-primary" />
+                <div className="w-3 h-3 rotate-45 border border-primary" />
+                <div className="w-16 h-px bg-primary" />
+              </div>
+            </div>
+
+            <p className="text-primary tracking-[0.3em] uppercase text-sm mb-6 font-normal">
+              O Guia de 31 Dias do Estudante de Direito Perfeito
+            </p>
+
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-6 leading-tight text-balance font-medium">
+              Dominar Direito começa aqui. <span className="text-gold-gradient font-bold">Em 31 dias, sua forma de estudar muda.</span>
+            </h1>
+
+            <p className="text-lg md:text-lg text-muted-foreground leading-relaxed mb-8">
+              Em 31 dias, você percorrerá uma sequência clara e organizada de <strong>lições do Prof. Costa Machado</strong> para sair do estudo automático e instalar <strong>consciência, método e direção</strong> — os 3 pilares que faltam no seu estudo.
+            </p>
+
+            {/* Quote */}
+            <blockquote className="font-serif text-lg md:text-xl text-primary italic mb-8">
+              &ldquo;A coisa mais importante que eu tenho a fazer é dar esta palestra.&rdquo;
+            </blockquote>
+
+            {/* CTA */}
+            <div className="mb-8">
+              <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase text-sm px-8 py-6 transition-all duration-300">
+                <Link href="/checkout">Comece Agora</Link>
+              </Button>
+            </div>
+
+            {/* Badges/Stats */}
+            <div className="grid grid-cols-2 gap-4 mt-12">
+              {[
+                { value: "31", label: "vídeos curtos" },
+                { value: "6", label: "módulos" },
+                { value: "1", label: "ano acesso" },
+                { value: "✓", label: "acesso vitalício" }
+              ].map((badge, i) => (
+                <div key={i} className="text-left">
+                  <p className="font-serif text-2xl text-primary font-semibold">{badge.value}</p>
+                  <p className="text-sm text-muted-foreground">{badge.label}</p>
+                </div>
+              ))}
             </div>
           </div>
 
-          <p className="text-primary tracking-[0.3em] uppercase text-sm mb-6 font-normal">
-            O Guia de 31 Dias do Estudante de Direito Perfeito
-          </p>
-
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl text-foreground mb-6 leading-tight text-balance font-medium">
-            A formação do estudante de Direito não é um detalhe. <span className="text-gold-gradient font-bold">É uma responsabilidade.</span>
-          </h1>
-
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
-            Eu vou te ensinar como tratar a formação em Direito com seriedade. Em 31 dias, você percorrerá uma sequência clara e organizada de lições para sair do estudo automático e instalar consciência, método e direção.
-          </p>
-
-          {/* Quote */}
-          <blockquote className="font-serif text-xl md:text-2xl text-primary italic mb-8">
-            &ldquo;A coisa mais importante que eu tenho a fazer é dar esta palestra.&rdquo;
-          </blockquote>
-
-          
-
-          {/* CTA */}
-          <div className="mb-8">
-            <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase text-sm px-8 py-6 transition-all duration-300">
-              <Link href="/checkout">Quero começar agora — Dia 1</Link>
-            </Button>
+          {/* Right Video */}
+          <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-2xl">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/NqgJrDv7yG8?autoplay=1&mute=1&controls=1&modestbranding=1"
+              title="Vídeo de Vendas"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            />
           </div>
-
-          {/* Microcopy */}
-          
-
-          {/* Badges/Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
-            {[
-              "31 vídeos (lições)",
-              "6 módulos (sequência lógica)",
-              "Acesso por 1 ano",
-              "Certificado de conclusão (10 horas)"
-            ].map((badge, i) => (
-              null
-            ))}
-          </div>
+        </div>
 
           {/* Decorative bottom element */}
           <div className="flex justify-center mt-12">
@@ -98,17 +113,17 @@ export default function Home() {
             <div>
               <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">Objetivo</p>
               <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance font-medium">
-                O objetivo deste curso é, por meio da conscientização, torná-lo autônomo.
+                O objetivo deste guia é instalar autonomia real no seu estudo.
               </h2>
             </div>
             <div className="space-y-6">
               <p className="text-muted-foreground leading-relaxed text-lg">
-                O objetivo central deste Guia é dar autonomia ao estudante de Direito.
+                <strong>Você precisa disso porque:</strong>
               </p>
               <ul className="space-y-3 text-muted-foreground">
                 <li className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
-                  <span>Sair do estudo improvisado;</span>
+                  <span>Estudar com propósito, não por impulso;</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
@@ -116,11 +131,11 @@ export default function Home() {
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
-                  <span>Entender o curso como ele realmente é;</span>
+                  <span>Entender a lógica real da faculdade de Direito;</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
-                  <span>Construir uma base sólida para a faculdade e a carreira jurídica.</span>
+                  <span>Construir uma base sólida que não desmorona depois.</span>
                 </li>
               </ul>
               <p className="text-primary italic border-l-2 border-primary pl-4">
@@ -160,9 +175,9 @@ export default function Home() {
               }
             >
               <ul className="text-left text-sm text-muted-foreground space-y-2 mt-4">
-                <li>• Compreensão da engenharia da faculdade de Direito;</li>
-                <li>• Identificação de erros invisíveis do estudo automático;</li>
-                <li>• Leitura mais clara do papel do aluno no próprio aprendizado.</li>
+                <li>• Entender a engenharia real do curso;</li>
+                <li>• Descobrir para onde você realmente vai;</li>
+                <li>• Sair do automático com propósito claro.</li>
               </ul>
             </ServiceCard>
             <ServiceCard
@@ -177,13 +192,13 @@ export default function Home() {
               }
             >
               <ul className="text-left text-sm text-muted-foreground space-y-2 mt-4">
-                <li>• Atenção em aula;</li>
-                <li>• Registro adequado (cadernos, códigos, leitura);</li>
-                <li>• Consolidação do que foi estudado.</li>
+                <li>• A sequência clara: atenção → registro → consolidação;</li>
+                <li>• Como estudar de forma que o conhecimento fica;</li>
+                <li>• A base de toda progressão durável.</li>
               </ul>
             </ServiceCard>
             <ServiceCard
-              title="Direção diária"
+              title="Direção"
               description=""
               icon={
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-12 h-12">
@@ -193,17 +208,20 @@ export default function Home() {
               }
             >
               <ul className="text-left text-sm text-muted-foreground space-y-2 mt-4">
-                <li>• Sequência fechada de 31 dias;</li>
-                <li>• Execução curta e objetiva;</li>
-                <li>• Sem depender de motivação.</li>
+                <li>• 31 dias = 31 pequenas vitórias;</li>
+                <li>• Sem depender de motivação ou vontade;</li>
+                <li>• Apenas execução consistente do plano.</li>
               </ul>
             </ServiceCard>
           </div>
 
           <div className="text-center mt-16">
-            <blockquote className="font-serif text-xl md:text-2xl text-primary italic">
+            <blockquote className="font-serif text-xl md:text-2xl text-primary italic mb-8">
               &ldquo;Constância não nasce de vontade. Nasce de um plano pequeno que você cumpre.&rdquo;
             </blockquote>
+            <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase text-sm px-8 py-6 transition-all duration-300">
+              <Link href="/checkout">Comece Agora</Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -326,10 +344,10 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12">
             {[
-              { value: "31", label: "vídeos (lições)" },
-              { value: "6", label: "módulos em sequência" },
-              { value: "1", label: "ano de acesso" },
-              { value: "10h", label: "certificado" }
+              { value: "31", label: "vídeos (10-15 min cada)" },
+              { value: "6", label: "módulos em ordem lógica" },
+              { value: "1 ano", label: "acesso completo" },
+              { value: "✓", label: "certificado (10 horas)" }
             ].map((item, i) => (
               <div key={i} className="relative p-6 bg-card border border-border text-center">
                 <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-primary" />
@@ -344,7 +362,7 @@ export default function Home() {
 
           <div className="text-center">
             <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase text-sm px-8 py-6 transition-all duration-300">
-              <Link href="/checkout">Quero começar — Dia 1</Link>
+              <Link href="/checkout">Comece Agora</Link>
             </Button>
           </div>
         </div>
@@ -362,11 +380,11 @@ export default function Home() {
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
             {[
-              "Mais autonomia nos estudos;",
-              "Mais clareza sobre o curso de Direito;",
-              "Melhor aproveitamento das aulas;",
-              "Hábito de registrar e consolidar conteúdos;",
-              "Uso mais consciente de códigos e materiais;",
+              "Autonomia que você controla (sem depender de professor ou cursinho);",
+              "Clareza sobre o curso de Direito (finalmente entender por quê);",
+              "Hábito de consolidação (a base de toda progressão);",
+              "Uso consciente de códigos e materiais;",
+              "Rotina de estudo que não cansa;",
               "Direção diária para estudar sem improviso."
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-3 p-4 border border-border bg-card">
@@ -488,7 +506,7 @@ export default function Home() {
               </p>
 
               <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase text-sm px-8 py-6 transition-all duration-300 mb-6">
-                <Link href="/checkout">Quero começar agora — Dia 1</Link>
+                <Link href="/checkout">Comece Agora</Link>
               </Button>
 
               <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
@@ -530,7 +548,7 @@ export default function Home() {
             Se você quer parar de estudar no automático e assumir o controle da sua formação jurídica, este Guia foi feito para você.
           </p>
           <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase text-sm px-8 py-6 transition-all duration-300">
-            <Link href="/checkout">Quero começar agora — Dia 1</Link>
+            <Link href="/checkout">Comece Agora</Link>
           </Button>
         </div>
       </section>

@@ -13,28 +13,36 @@ const faqItems = [
     answer: "Para estudantes de Direito de qualquer semestre que querem sair do estudo automático e desenvolver autonomia com consciência, método e direção."
   },
   {
+    question: "Preciso de conhecimento prévio?",
+    answer: "Não. O Guia é para qualquer semestre. Se você estuda Direito e quer melhorar a forma como estuda, é para você."
+  },
+  {
     question: "Quanto tempo por dia?",
-    answer: "Cerca de 10 minutos por dia, seguindo a sequência do Guia."
+    answer: "Cerca de 10-15 minutos por dia, seguindo a sequência do Guia. É executável, não é maratona."
   },
   {
     question: "Quantas aulas são?",
-    answer: "31 vídeos (lições), organizados em sequência."
+    answer: "31 vídeos (lições), organizados em 6 módulos em sequência lógica."
   },
   {
     question: "Por quanto tempo tenho acesso?",
-    answer: "Por 1 ano, incluindo aulas e materiais."
+    answer: "Por 1 ano, incluindo aulas, materiais e atualizações. Acesso vitalício ao seu progresso."
   },
   {
     question: "O Guia promete aprovação?",
-    answer: "Não. É um método para instalar autonomia de estudo e postura na formação jurídica."
+    answer: "Não. É um método para instalar autonomia de estudo, consciência e postura na formação jurídica — que são a base para qualquer desempenho depois."
   },
   {
-    question: "Como funciona a garantia?",
-    answer: "Você pode solicitar reembolso em até 7 dias, dentro do prazo da garantia."
+    question: "Como acesso o material?",
+    answer: "Via plataforma online (acesso web + aplicativo para celular). Você assiste quando quiser, quantas vezes quiser."
+  },
+  {
+    question: "Qual é a garantia?",
+    answer: "Garantia de 7 dias: experimente. Se não for para você, solicite reembolso integral dentro de 7 dias — sem perguntas."
   },
   {
     question: "Posso assistir pelo celular?",
-    answer: "Sim."
+    answer: "Sim. App nativo + web responsivo. Você estuda em qualquer lugar."
   }
 ]
 
