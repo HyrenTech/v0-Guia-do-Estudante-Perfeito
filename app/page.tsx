@@ -359,18 +359,23 @@ export default function Home() {
             Investimento médio em uma faculdade de Direito (5 anos):
           </p>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-10">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-6">
             {[
               { label: "Mensalidades", value: "R$ 150.000+" },
               { label: "Livros e materiais", value: "R$ 15.000+" },
-              { label: "Tempo dedicado", value: "10.000+ horas" },
-              { label: "Total", value: "R$ 165.000+" }
+              { label: "Tempo dedicado", value: "10.000+ horas" }
             ].map((item, i) => (
               <div key={i} className="text-center p-4 border border-border bg-card">
                 <p className="text-sm text-muted-foreground mb-1">{item.label}</p>
                 <p className="font-serif text-lg text-foreground font-medium">{item.value}</p>
               </div>
             ))}
+          </div>
+
+          <div className="text-center mb-10">
+            <p className="text-lg text-foreground font-medium mb-2">
+              Total: <span className="text-primary">R$ 165.000+ e cinco anos da sua vida</span>
+            </p>
           </div>
 
           <p className="text-lg text-muted-foreground text-center mb-10">
@@ -406,7 +411,7 @@ export default function Home() {
           <ArtDecoDivider variant="fan" />
 
           <div className="text-center mb-12">
-            <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">Depoimentos</p>
+            <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">Prova Social</p>
             <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6 text-balance">
               O Que Alunos Relatam
             </h2>
@@ -536,10 +541,9 @@ export default function Home() {
             </ul>
 
             <div className="text-center">
-              <p className="font-serif text-5xl md:text-6xl text-gold-gradient font-bold mb-2">R$ 97</p>
-              <p className="text-muted-foreground mb-8">ou 12x de R$ 9,68</p>
+              <p className="font-serif text-5xl md:text-6xl text-gold-gradient font-bold mb-8">R$ 97</p>
 
-              <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase px-12 py-7 text-base transition-all duration-300 mb-6">
+              <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase px-12 py-7 text-base transition-all duration-300 mb-6 w-full md:w-auto">
                 <Link href={CHECKOUT_URL}>Comece Agora</Link>
               </Button>
 
@@ -552,27 +556,29 @@ export default function Home() {
       </section>
 
       {/* SEÇÃO GARANTIA - 7 DIAS */}
-      <section className="py-20 px-6 bg-background">
+      <section className="py-24 px-6 bg-background">
         <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-10 items-center">
+          <ArtDecoDivider variant="fan" />
+          
+          <div className="grid md:grid-cols-2 gap-12 items-center mt-12">
             {/* Badge Visual */}
-            <div className="flex justify-center">
-              <div className="relative w-48 h-48 md:w-56 md:h-56">
+            <div className="flex justify-center order-2 md:order-1">
+              <div className="relative w-48 h-48 md:w-64 md:h-64">
                 {/* Outer ring */}
                 <div className="absolute inset-0 rounded-full border-4 border-primary" />
                 {/* Inner ring */}
-                <div className="absolute inset-3 rounded-full border-2 border-primary/60" />
+                <div className="absolute inset-4 rounded-full border-2 border-primary/60" />
                 {/* Content */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <span className="text-primary text-sm tracking-widest uppercase font-medium">Dias de</span>
-                  <span className="font-serif text-6xl md:text-7xl text-gold-gradient font-bold leading-none">7</span>
-                  <span className="text-primary text-sm tracking-widest uppercase font-medium">Garantia</span>
+                  <span className="text-primary text-xs md:text-sm tracking-widest uppercase font-medium">Dias de</span>
+                  <span className="font-serif text-6xl md:text-8xl text-gold-gradient font-bold leading-none">7</span>
+                  <span className="text-primary text-xs md:text-sm tracking-widest uppercase font-medium">Garantia</span>
                 </div>
               </div>
             </div>
 
             {/* Text Content */}
-            <div>
+            <div className="order-1 md:order-2">
               <h3 className="font-serif text-3xl md:text-4xl text-foreground mb-6">
                 7 dias de garantia
               </h3>
@@ -636,7 +642,7 @@ export default function Home() {
             <p className="text-primary italic text-lg mb-2">
               A pergunta não é &ldquo;vale a pena?&rdquo;
             </p>
-            <p className="text-primary font-medium text-xl">
+            <p className="text-primary font-medium text-xl mb-6">
               A pergunta é: &ldquo;quanto estou perdendo ao não fazer isso?&rdquo;
             </p>
           </div>
