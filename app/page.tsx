@@ -12,63 +12,33 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section id="o-guia" className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden pt-20 pb-20">
+      <section id="o-guia" className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden pt-20">
         <ArtDecoSunburst />
 
-        <div className="relative z-10 w-full grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          {/* Left Content */}
-          <div className="text-center md:text-left">
-            {/* Decorative top element */}
-            <div className="flex justify-center md:justify-start mb-8">
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-px bg-primary" />
-                <div className="w-3 h-3 rotate-45 border border-primary" />
-                <div className="w-16 h-px bg-primary" />
-              </div>
-            </div>
-
-            <p className="text-primary tracking-[0.3em] uppercase text-sm mb-6 font-normal">
-              O Guia de 31 Dias do Estudante de Direito Perfeito
-            </p>
-
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-6 leading-tight text-balance font-medium">
-              Dominar Direito começa aqui. <span className="text-gold-gradient font-bold">Em 31 dias, sua forma de estudar muda.</span>
-            </h1>
-
-            <p className="text-lg md:text-lg text-muted-foreground leading-relaxed mb-8">
-              Em 31 dias, você percorrerá uma sequência clara e organizada de <strong>lições do Prof. Costa Machado</strong> para sair do estudo automático e instalar <strong>consciência, método e direção</strong> — os 3 pilares que faltam no seu estudo.
-            </p>
-
-            {/* Quote */}
-            <blockquote className="font-serif text-lg md:text-xl text-primary italic mb-8">
-              &ldquo;A coisa mais importante que eu tenho a fazer é dar esta palestra.&rdquo;
-            </blockquote>
-
-            {/* CTA */}
-            <div className="mb-8">
-              <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase text-sm px-8 py-6 transition-all duration-300">
-                <Link href="/checkout">Comece Agora</Link>
-              </Button>
-            </div>
-
-            {/* Badges/Stats */}
-            <div className="grid grid-cols-2 gap-4 mt-12">
-              {[
-                { value: "31", label: "vídeos curtos" },
-                { value: "6", label: "módulos" },
-                { value: "1", label: "ano acesso" },
-                { value: "✓", label: "acesso vitalício" }
-              ].map((badge, i) => (
-                <div key={i} className="text-left">
-                  <p className="font-serif text-2xl text-primary font-semibold">{badge.value}</p>
-                  <p className="text-sm text-muted-foreground">{badge.label}</p>
-                </div>
-              ))}
+        <div className="relative z-10 text-center max-w-4xl mx-auto">
+          {/* Decorative top element */}
+          <div className="flex justify-center mb-8">
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-px bg-primary" />
+              <div className="w-3 h-3 rotate-45 border border-primary" />
+              <div className="w-16 h-px bg-primary" />
             </div>
           </div>
 
-          {/* Right Video */}
-          <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-2xl">
+          <p className="text-primary tracking-[0.3em] uppercase text-sm mb-6 font-normal">
+            O Guia de 31 Dias do Estudante de Direito Perfeito
+          </p>
+
+          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl text-foreground mb-6 leading-tight text-balance font-medium">
+            Dominar Direito começa aqui. <span className="text-gold-gradient font-bold">Em 31 dias, sua forma de estudar muda.</span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-10">
+            Em 31 dias, você percorrerá uma sequência clara e organizada de <strong>lições do Prof. Costa Machado</strong> para sair do estudo automático e instalar <strong>consciência, método e direção</strong> — os 3 pilares que faltam no seu estudo.
+          </p>
+
+          {/* Video */}
+          <div className="relative w-full max-w-3xl mx-auto aspect-video rounded-lg overflow-hidden shadow-2xl mb-10 border border-primary/20">
             <iframe
               width="100%"
               height="100%"
@@ -79,13 +49,40 @@ export default function Home() {
               className="w-full h-full"
             />
           </div>
-        </div>
 
-        {/* Decorative bottom element */}
-        <div className="flex justify-center mt-12 absolute bottom-24">
-          <div className="flex flex-col items-center gap-2">
-            <div className="w-px h-16 bg-gradient-to-b from-transparent via-primary to-primary" />
-            <div className="w-2 h-2 rotate-45 bg-primary" />
+          {/* Quote */}
+          <blockquote className="font-serif text-xl md:text-2xl text-primary italic mb-8">
+            &ldquo;A coisa mais importante que eu tenho a fazer é dar esta palestra.&rdquo;
+          </blockquote>
+
+          {/* CTA */}
+          <div className="mb-10">
+            <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase text-sm px-8 py-6 transition-all duration-300">
+              <Link href="/checkout">Comece Agora</Link>
+            </Button>
+          </div>
+
+          {/* Badges/Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
+            {[
+              { value: "31", label: "vídeos curtos" },
+              { value: "6", label: "módulos" },
+              { value: "1 ano", label: "de acesso" },
+              { value: "10h", label: "certificado" }
+            ].map((badge, i) => (
+              <div key={i} className="text-center">
+                <p className="font-serif text-2xl text-primary font-semibold">{badge.value}</p>
+                <p className="text-sm text-muted-foreground">{badge.label}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Decorative bottom element */}
+          <div className="flex justify-center mt-12">
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-px h-16 bg-gradient-to-b from-transparent via-primary to-primary" />
+              <div className="w-2 h-2 rotate-45 bg-primary" />
+            </div>
           </div>
         </div>
 
