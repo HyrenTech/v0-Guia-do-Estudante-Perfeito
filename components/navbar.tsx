@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 
 const CHECKOUT_URL = "https://pay.hotmart.com/V103763457H"
@@ -14,7 +15,6 @@ export function Navbar() {
     { label: "O Método", href: "#metodo" },
     { label: "Professor", href: "#professor" },
     { label: "Oferta", href: "#oferta" },
-    { label: "FAQ", href: "#faq" },
   ]
 
   return (
@@ -22,8 +22,15 @@ export function Navbar() {
       <nav className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Brand */}
-          <Link href="#o-guia" className="font-serif text-lg text-foreground hover:text-primary transition-colors">
-            Guia 31 Dias
+          <Link href="#o-guia" className="flex items-center">
+            <Image
+              src="/logo-produto.png"
+              alt="Guia de 31 Dias do Estudante de Direito Perfeito"
+              width={180}
+              height={56}
+              className="h-12 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -41,8 +48,8 @@ export function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase text-xs px-6 transition-all duration-300">
-              <Link href={CHECKOUT_URL}>Comece Agora</Link>
+            <Button asChild variant="cta" className="text-xs px-6">
+              <Link href={CHECKOUT_URL}>Comece agora</Link>
             </Button>
           </div>
 
@@ -78,8 +85,8 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider uppercase text-xs px-6 mt-2 transition-all duration-300 w-full">
-                <Link href={CHECKOUT_URL}>Comece Agora</Link>
+              <Button asChild variant="cta" className="text-xs px-6 mt-2 w-full">
+                <Link href={CHECKOUT_URL}>Comece agora</Link>
               </Button>
             </div>
           </div>
