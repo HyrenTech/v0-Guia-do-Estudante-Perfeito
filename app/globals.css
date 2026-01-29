@@ -162,3 +162,41 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+.font-roboto {
+  font-family: var(--font-roboto), sans-serif;
+  font-weight: 900;
+}
+
+.font-roboto-700 {
+  font-family: var(--font-roboto), sans-serif;
+  font-weight: 700;
+}
+
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-left 150s linear infinite;
+}
+
+.card-bg-v2 {
+  background-image: url("/card-bg4.png");
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}

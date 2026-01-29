@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
-import { Cormorant_Garamond, Geist_Mono, Source_Sans_3 } from "next/font/google"
+import { Cormorant_Garamond, Geist_Mono, Roboto, Source_Sans_3 } from "next/font/google"
 
 const bodyFont = Source_Sans_3({
   subsets: ["latin"],
@@ -21,6 +21,12 @@ const monoFont = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
   weight: ["300", "400", "500", "600", "700"],
+})
+
+const robotoFont = Roboto({
+  subsets: ["latin"],
+  variable: "--font-roboto",
+  weight: ["700", "900"],
 })
 
 export const metadata: Metadata = {
@@ -54,7 +60,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
-      <body className={`${bodyFont.variable} ${displayFont.variable} ${monoFont.variable} font-sans antialiased`}>
+      <body
+        className={`${bodyFont.variable} ${displayFont.variable} ${monoFont.variable} ${robotoFont.variable} font-sans antialiased`}
+      >
         {children}
         <Analytics />
       </body>

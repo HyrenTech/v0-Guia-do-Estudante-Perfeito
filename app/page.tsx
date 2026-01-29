@@ -1,13 +1,165 @@
 import { ArtDecoSunburst } from "@/components/art-deco-sunburst"
-import { ArtDecoDivider } from "@/components/art-deco-divider"
 import { SalesVideo } from "@/components/sales-video"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
 const CHECKOUT_URL = "https://pay.hotmart.com/V103763457H"
+const MODULE_ACCENTS = [
+  "from-primary/35 via-primary/10 to-transparent",
+  "from-secondary/35 via-secondary/10 to-transparent",
+  "from-chart-3/35 via-chart-3/10 to-transparent",
+  "from-chart-4/35 via-chart-4/10 to-transparent",
+  "from-chart-5/35 via-chart-5/10 to-transparent",
+  "from-primary/25 via-primary/10 to-transparent",
+  "from-secondary/25 via-secondary/10 to-transparent",
+]
+
+const LESSON_MODULES = [
+  {
+    module: "Módulo 1",
+    title: "Como o Guia Funciona",
+    lessons: [{ number: "01", title: "Como o Guia de 31 Dias Funciona" }],
+  },
+  {
+    module: "Módulo 2",
+    title: "Coisas que não falaram a você sobre o curso de Direito",
+    lessons: [
+      { number: "02", title: "Parabéns pela decisão de cursar Direito." },
+      { number: "03", title: "Graduação: Os 5 anos mais importantes da sua vida!" },
+      { number: "04", title: "A palestra mais importante da minha vida." },
+      { number: "05", title: "O Direito melhora as pessoas, de qualquer jeito." },
+      { number: "06", title: "O Direito é difícil, mas a faculdade é fácil!" },
+    ],
+  },
+  {
+    module: "Módulo 3",
+    title: "A consciência que o aluno de Direito não tem",
+    lessons: [
+      { number: "07", title: "Por que falar de uma consciência?" },
+      { number: "08", title: "O bom curso de Direito deveria ser ministrado em 50 anos!" },
+      { number: "09", title: "Cuidado com a facilidade da faculdade de Direito!" },
+      { number: "10", title: "Consciência gerando autonomia para o sucesso." },
+    ],
+  },
+  {
+    module: "Módulo 4",
+    title: "Compromissos na faculdade que geram sucesso profissional",
+    lessons: [
+      { number: "11", title: "50 anos em 5 e o aluno não aparece na faculdade?" },
+      { number: "12", title: "Compromisso do aluno consigo mesmo. Alguns exemplos extremos." },
+      { number: "13", title: "Aproveitando ao máximo a faculdade: as aulas vagas." },
+      { number: "14", title: "Discriminação contra o professor?" },
+      { number: "15", title: "O problema do aluno dorminhoco." },
+      { number: "16", title: "Sobre o problema de não prestar atenção" },
+      { number: "17", title: "Mas, por que prestar atenção não basta? Registrar é preciso." },
+      { number: "18", title: "O aluno registrador perfeito. Como?" },
+      { number: "19", title: "Para que um caderno de 200 páginas?" },
+    ],
+  },
+  {
+    module: "Módulo 5",
+    title: "Compromissos fora da faculdade que geram sucesso profissional",
+    lessons: [
+      { number: "20", title: "A coisa que só a Faculdade de Direito tem!" },
+      { number: "21", title: "A importância de dominar os códigos jurídicos." },
+      { number: "22", title: "Que aluno de Direito leu os códigos mais importantes?" },
+      {
+        number: "23",
+        title: "Valorize os códigos físicos e o exemplo do Prof. Costa Machado de começar tudo de novo.",
+      },
+      { number: "24", title: "Sobre o Vade-mécum e o aluno de Direito: benção ou maldição?" },
+      { number: "26", title: "O exemplo de sucesso do Professor Damásio de Jesus." },
+      { number: "27", title: "A leitura das melhores obras pelo aluno de Direito perfeito" },
+      { number: "28", title: "Leitura, Estudo e Conhecimento: O caminho do sucesso." },
+      { number: "29", title: "Fuja do Estágio! Você precisa é de livros!" },
+    ],
+  },
+  {
+    module: "Módulo 6",
+    title: "Conclusões de esperança e otimismo para quem cursa Direito",
+    lessons: [
+      { number: "30", title: "As estatísticas sobre o resultado dessas lições." },
+      { number: "31", title: "Morro de inveja de vocês! Eu faria Direito tudo de novo! Vale a Pena!" },
+    ],
+  },
+  {
+    module: "Módulo 7",
+    title: "Vídeo-Biografia do Professor Costa Machado",
+    lessons: [{ number: "—", title: "Vídeo-Biografia - Professor Costa Machado" }],
+  },
+]
+
+const FAQ_ITEMS = [
+  {
+    question: "Tem garantia? Qual?",
+    answer: "Sim. Garantia total de 7 dias.",
+  },
+  {
+    question: "Isso é preparatório para OAB?",
+    answer:
+      "Não. O guia é um método para elevar o seu desempenho na graduação e construir autonomia de estudo. Ele pode ajudar indiretamente, mas não substitui um curso preparatório específico para a OAB.",
+  },
+  {
+    question: "Em quanto tempo por dia eu preciso estudar?",
+    answer:
+      "As lições foram pensadas para cerca de 10 minutos por dia, com foco em consistência e aplicação diária.",
+  },
+  {
+    question: "São aulas longas ou curtas?",
+    answer: "Curtas e objetivas, feitas para caber na sua rotina diária sem sobrecarregar.",
+  },
+  {
+    question: "O guia é para qual fase da faculdade?",
+    answer:
+      "Funciona em qualquer fase. Quanto mais cedo você aplicar o método, maior o impacto — mas ele também serve para quem já está avançado.",
+  },
+  {
+    question: "Como acesso os vídeos?",
+    answer: "O acesso é online pela área do aluno. Após a compra, você recebe as instruções de login por e-mail.",
+  },
+  {
+    question: "Por quanto tempo tenho acesso?",
+    answer: "Você tem acesso por 1 ano.",
+  },
+  {
+    question: "O certificado é válido para horas complementares?",
+    answer:
+      "É um curso livre. Muitas faculdades aceitam como horas complementares, mas isso depende da política de cada instituição.",
+  },
+  {
+    question: "Como emitir o certificado? Ele vem assinado?",
+    answer:
+      "Após concluir o curso, o certificado fica disponível na área do aluno para download. Ele é emitido digitalmente pela plataforma.",
+  },
+  {
+    question: "Minha faculdade aceita certificado de curso livre?",
+    answer:
+      "Algumas aceitam, outras não. Recomendamos confirmar diretamente com a coordenação do seu curso.",
+  },
+  {
+    question: "O que exatamente eu vou aprender nesses 31 dias?",
+    answer:
+      "Você aprende consciência e método de estudo, compromisso com a rotina, atenção e registro em aula, leitura estratégica de códigos e construção de autonomia acadêmica.",
+  },
+  {
+    question: "Qual a diferença entre “ver aula” e “aplicar método”?",
+    answer:
+      "Ver aula é consumir conteúdo. Aplicar método é executar práticas diárias: registrar, revisar, construir rotina e transformar informação em conhecimento durável.",
+  },
+]
 
 export default function Home() {
+  const lessonCards = LESSON_MODULES.flatMap((module, moduleIndex) =>
+    module.lessons.map((lesson) => ({
+      ...lesson,
+      module: module.module,
+      moduleTitle: module.title,
+      theme: MODULE_ACCENTS[moduleIndex % MODULE_ACCENTS.length],
+    }))
+  )
+  const lessonTrack = [...lessonCards, ...lessonCards]
+
   return (
     <main className="min-h-screen bg-background scroll-smooth">
       {/* SEÇÃO 1 - HERO */}
@@ -18,7 +170,7 @@ export default function Home() {
         <ArtDecoSunburst />
 
         <div className="relative z-10 text-center max-w-4xl mx-auto">
-          <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl text-foreground mb-4 leading-tight text-balance font-semibold uppercase">
+          <h1 className="font-roboto-700 text-3xl md:text-5xl lg:text-6xl text-foreground mb-4 leading-tight text-balance uppercase">
             TORNE-SE UM ESTUDANTE DE DIREITO{" "}
             <span className="text-gold-gradient font-bold">PERFEITO</span>
           </h1>
@@ -40,7 +192,7 @@ export default function Home() {
 
           {/* CTA */}
           <div className="mb-8">
-            <Button asChild variant="cta" className="text-sm px-10 py-6">
+            <Button asChild variant="cta" className="font-roboto text-sm px-10 py-6">
               <Link href={CHECKOUT_URL}>Comece agora</Link>
             </Button>
           </div>
@@ -71,11 +223,10 @@ export default function Home() {
       {/* SEÇÃO 2 - O PROBLEMA */}
       <section className="py-24 px-6">
         <div className="max-w-4xl mx-auto">
-          <ArtDecoDivider variant="stepped" />
 
           <div className="text-center mb-12">
             <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">O Problema</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance font-medium">
+            <h2 className="font-roboto text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance">
               O Que Ninguém Te Ensina na Faculdade
             </h2>
           </div>
@@ -112,7 +263,7 @@ export default function Home() {
 
           <div className="relative text-center py-12">
             <blockquote className="relative z-10">
-              <p className="font-serif text-xl md:text-2xl leading-relaxed italic mb-6 text-primary font-semibold">
+              <p className="font-roboto text-xl md:text-2xl leading-relaxed italic mb-6 text-primary">
                 &ldquo;Se o &lsquo;bom curso de Direito&rsquo; exigiria 50 anos para ser ministrado, como pode um aluno que só tem 5 não levar a sério a faculdade?&rdquo;
               </p>
               <cite className="text-muted-foreground text-sm">— Prof. Costa Machado</cite>
@@ -130,31 +281,76 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SEÇÃO 2.5 - AULAS DO CURSO */}
+      <section className="py-20 px-6 bg-background">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10">
+            <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">Aulas do Curso</p>
+            <h2 className="font-roboto text-3xl md:text-4xl text-foreground mb-4 text-balance">
+              Tudo o que Você Aprenderá
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-roboto-700">
+              Uma visão rápida dos temas, organizados por módulos, com lições curtas e diretas para os seus 31 dias.
+            </p>
+          </div>
+        </div>
+
+        <div className="marquee">
+          <div className="marquee-track gap-5 px-6">
+            {lessonTrack.map((lesson, index) => (
+              <div
+                key={`${lesson.module}-${lesson.number}-${index}`}
+                className="relative w-[224px] md:w-[256px] aspect-[2/3] shrink-0 rounded-[34px] md:rounded-[38px] card-bg-v2 shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/5 to-black/40" />
+                <div className={`absolute -right-12 -top-12 h-24 w-24 rounded-full bg-gradient-to-br ${lesson.theme} blur-3xl opacity-50`} />
+                <div className="absolute -left-12 -bottom-12 h-24 w-24 rounded-full bg-primary/10 blur-3xl" />
+
+                <div className="relative h-full p-5 flex flex-col">
+                  <div className="flex items-center justify-between mb-4 px-1">
+                    <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-roboto-700">
+                      {lesson.module}
+                    </span>
+                    <span className="text-[11px] text-muted-foreground font-roboto-700">Aula {lesson.number}</span>
+                  </div>
+
+                  <p className="text-foreground text-[1.4rem] md:text-[1.75rem] leading-[1.15] font-roboto text-balance px-1">
+                    <span className="text-gold-gradient">{lesson.title.split(" ").slice(0, 2).join(" ")}</span>{" "}
+                    {lesson.title.split(" ").slice(2).join(" ")}
+                  </p>
+
+                  <div className="mt-auto" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* SEÇÃO 3 - A SOLUÇÃO */}
       <section className="py-24 px-6 bg-card/50">
         <div className="max-w-4xl mx-auto">
-          <ArtDecoDivider variant="fan" />
 
           <div className="text-center mb-12">
             <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">A Solução</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance font-medium">
+            <h2 className="font-roboto text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance">
               O Que Separa os Estudantes Bem-Sucedidos dos Demais
             </h2>
           </div>
 
-          <p className="text-lg text-muted-foreground text-center mb-10 max-w-3xl mx-auto">
+          <p className="font-roboto text-lg text-muted-foreground text-center mb-10 max-w-3xl mx-auto">
             Durante 35 anos lecionando na USP — a catedral do Direito brasileiro — o Prof. Costa Machado identificou <strong className="text-foreground">o padrão que distingue</strong> os juristas de excelência daqueles que se perdem no caminho.
           </p>
 
           <div className="text-center mb-10">
-            <p className="text-2xl text-gold-gradient font-serif font-bold">
+            <p className="text-2xl text-gold-gradient font-roboto">
               Método certo aplicado desde cedo.
             </p>
           </div>
 
           <div className="relative text-center py-8 mb-10">
             <blockquote className="relative z-10">
-              <p className="font-serif text-xl md:text-2xl leading-relaxed italic text-primary">
+              <p className="font-roboto text-xl md:text-2xl leading-relaxed italic text-primary">
                 &ldquo;O objetivo deste curso é o de, por meio da conscientização, torná-lo autônomo.&rdquo;
               </p>
               <cite className="text-muted-foreground text-sm">— Prof. Costa Machado</cite>
@@ -166,11 +362,10 @@ export default function Home() {
       {/* SEÇÃO 4 - O MÉTODO */}
       <section id="metodo" className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          <ArtDecoDivider variant="chevron" />
 
           <div className="text-center mb-12">
             <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">O Método</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance font-medium">
+            <h2 className="font-roboto text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance">
               Por Que 31 Dias?
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -203,7 +398,7 @@ export default function Home() {
                   <div className="absolute -left-10 -bottom-10 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
                 </div>
                 <div className="relative">
-                  <h3 className="font-serif text-lg text-foreground mb-3 tracking-wide">{item.heading}</h3>
+                  <h3 className="font-roboto text-lg text-foreground mb-3 tracking-wide">{item.heading}</h3>
                   <p className="text-sm text-muted-foreground">{item.description}</p>
                 </div>
                 <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
@@ -222,7 +417,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">Transformação</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance font-medium">
+            <h2 className="font-roboto text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance">
               O Que Muda em 31 Dias
             </h2>
           </div>
@@ -235,7 +430,7 @@ export default function Home() {
               <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-muted-foreground/50" />
               <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-muted-foreground/50" />
               
-              <h3 className="font-serif text-2xl text-muted-foreground mb-6 text-center">ANTES (Você Hoje)</h3>
+              <h3 className="font-roboto text-2xl text-muted-foreground mb-6 text-center">ANTES (Você Hoje)</h3>
               <ul className="space-y-4 text-muted-foreground">
                 {[
                   "Assiste aulas sem saber como prestar atenção",
@@ -259,7 +454,7 @@ export default function Home() {
               <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-primary" />
               <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary" />
               
-              <h3 className="font-serif text-2xl text-primary mb-6 text-center">DEPOIS (Você Transformado)</h3>
+              <h3 className="font-roboto text-2xl text-primary mb-6 text-center">DEPOIS (Você Transformado)</h3>
               <ul className="space-y-4 text-foreground">
                 {[
                   { text: "Aproveita cada aula com máxima eficiência" },
@@ -281,18 +476,13 @@ export default function Home() {
 
           <div className="relative text-center py-8 mb-10">
             <blockquote className="relative z-10">
-              <p className="font-serif text-xl md:text-2xl leading-relaxed italic text-primary">
+              <p className="font-roboto text-xl md:text-2xl leading-relaxed italic text-primary">
                 &ldquo;Autonomia significa normas (nomos) para si próprio (auto). O aluno consciente e, por isso, autônomo, não precisa de ninguém para conduzi-lo no caminho do conhecimento.&rdquo;
               </p>
               <cite className="text-muted-foreground text-sm">— Prof. Costa Machado</cite>
             </blockquote>
           </div>
 
-          <div className="text-center">
-            <Button asChild variant="cta" className="text-sm px-10 py-6">
-              <Link href={CHECKOUT_URL}>Comece agora</Link>
-            </Button>
-          </div>
         </div>
       </section>
 
@@ -305,7 +495,7 @@ export default function Home() {
         <div className="max-w-md mx-auto relative z-10">
           <div className="relative rounded-3xl border border-primary/30 bg-gradient-to-b from-card/80 via-card/60 to-background/60 p-8 shadow-[0_18px_40px_rgba(0,0,0,0.45)]">
             <div className="text-center mb-7">
-              <h3 className="font-serif text-2xl md:text-3xl font-semibold text-balance text-foreground">
+              <h3 className="font-roboto text-2xl md:text-3xl text-balance text-foreground">
                 TORNE-SE UM ESTUDANTE DE DIREITO{" "}
                 <span className="text-gold-gradient font-bold">PERFEITO</span>
               </h3>
@@ -327,20 +517,20 @@ export default function Home() {
               ].map((item, i) => (
                 <li key={i} className="flex items-center justify-start gap-3">
                   <span className="text-primary font-bold text-lg">✓</span>
-                  <span className="text-foreground">{item}</span>
+                  <span className={`text-foreground ${/\d/.test(item) ? "font-roboto" : ""}`}>{item}</span>
                 </li>
               ))}
             </ul>
 
             <div className="border-t border-primary/20 pt-7 text-center">
               <p className="text-xs uppercase tracking-[0.35em] text-muted-foreground mb-2">Por apenas</p>
-              <p className="font-serif text-5xl text-gold-gradient font-bold mb-5">R$ 97</p>
+              <p className="font-roboto text-5xl text-gold-gradient mb-5">R$ 97</p>
 
-              <Button asChild variant="cta" className="px-8 py-6 text-sm mb-5 w-full max-w-[260px] mx-auto">
+              <Button asChild variant="cta" className="font-roboto px-8 py-6 text-sm mb-5 w-full max-w-[260px] mx-auto">
                 <Link href={CHECKOUT_URL}>Comece agora</Link>
               </Button>
 
-              <p className="text-xs text-muted-foreground">
+              <p className="font-roboto text-xs text-muted-foreground">
                 Acesso imediato • Transformação em 31 dias • Autonomia para toda a carreira
               </p>
             </div>
@@ -351,11 +541,10 @@ export default function Home() {
       {/* SEÇÃO GARANTIA - 7 DIAS */}
       <section className="py-24 px-6 bg-background">
         <div className="max-w-5xl mx-auto">
-          <ArtDecoDivider variant="fan" />
           
           <div className="grid md:grid-cols-2 gap-12 items-center mt-12">
             {/* Badge Visual */}
-            <div className="flex justify-center order-2 md:order-1">
+            <div className="flex justify-center order-1">
               <div className="relative w-48 h-48 md:w-64 md:h-64">
                 {/* Outer ring */}
                 <div className="absolute inset-0 rounded-full border-4 border-primary" />
@@ -364,15 +553,15 @@ export default function Home() {
                 {/* Content */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
                   <span className="text-primary text-xs md:text-sm tracking-widest uppercase font-medium">Dias de</span>
-                  <span className="font-serif text-6xl md:text-8xl text-gold-gradient font-bold leading-none">7</span>
+                  <span className="font-roboto text-6xl md:text-8xl text-gold-gradient leading-none">7</span>
                   <span className="text-primary text-xs md:text-sm tracking-widest uppercase font-medium">Garantia</span>
                 </div>
               </div>
             </div>
 
             {/* Text Content */}
-            <div className="order-1 md:order-2">
-              <h3 className="font-serif text-3xl md:text-4xl text-foreground mb-6">
+            <div className="order-2 text-center md:text-left">
+              <h3 className="font-roboto text-3xl md:text-4xl text-foreground mb-6">
                 Garantia de 7 Dias
               </h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
@@ -387,12 +576,11 @@ export default function Home() {
       {/* SEÇÃO 8 - AUTORIDADE */}
       <section id="professor" className="py-24 px-6">
         <div className="max-w-4xl mx-auto">
-          <ArtDecoDivider variant="chevron" />
 
           <div className="text-center mb-12">
             <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">Autoridade</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-2 text-balance">
-              Quem Construiu Este Sistema
+            <h2 className="font-roboto text-3xl md:text-4xl text-foreground mb-2 text-balance">
+              O Criador do Guia de 31 Dias
             </h2>
           </div>
 
@@ -418,22 +606,22 @@ export default function Home() {
               </div>
 
               <div>
-                <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-6 text-center md:text-left">
+                <h3 className="font-roboto text-2xl md:text-3xl text-foreground mb-6 text-center md:text-left">
                   Prof. Costa Machado
                 </h3>
 
                 <ul className="space-y-3 text-muted-foreground mb-8">
                   <li className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
-                    <span>Professor da Faculdade de Direito do Largo São Francisco (USP) — 1984 a 2019</span>
+                    <span className="font-roboto">Professor da Faculdade de Direito do Largo São Francisco (USP) — 1984 a 2019</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
-                    <span>Professor do Mestrado em Direitos Fundamentais (UNIFIEO) — 2000 a 2020</span>
+                    <span className="font-roboto">Professor do Mestrado em Direitos Fundamentais (UNIFIEO) — 2000 a 2020</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
-                    <span>Coordenador de Processo Civil (EPD) — 2008 a 2013</span>
+                    <span className="font-roboto">Coordenador de Processo Civil (EPD) — 2008 a 2013</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
@@ -460,11 +648,10 @@ export default function Home() {
       {/* SEÇÃO 7 - PROVA SOCIAL */}
       <section className="py-24 px-6 bg-card/50">
         <div className="max-w-6xl mx-auto">
-          <ArtDecoDivider variant="fan" />
 
           <div className="text-center mb-12">
             <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">Prova Social</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6 text-balance">
+            <h2 className="font-roboto text-3xl md:text-4xl text-foreground mb-6 text-balance">
               O Que Alunos Relatam
             </h2>
           </div>
@@ -482,7 +669,7 @@ export default function Home() {
                   <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
                   <div className="absolute -left-10 -bottom-10 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
                 </div>
-                <p className="relative font-serif text-lg text-foreground italic">&ldquo;{testimonial}&rdquo;</p>
+                <p className="relative font-roboto text-lg text-foreground italic">&ldquo;{testimonial}&rdquo;</p>
                 <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
               </div>
             ))}
@@ -497,10 +684,9 @@ export default function Home() {
       {/* SEÇÃO 10 - DECISÃO FINAL */}
       <section className="py-24 px-6 bg-card/50">
         <div className="max-w-4xl mx-auto">
-          <ArtDecoDivider variant="stepped" />
 
           <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance font-medium">
+            <h2 className="font-roboto text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance">
               A Escolha é Clara
             </h2>
           </div>
@@ -513,7 +699,7 @@ export default function Home() {
               <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-muted-foreground/30" />
               <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-muted-foreground/30" />
               
-              <h3 className="font-serif text-2xl text-muted-foreground mb-4 text-center">CAMINHO A:</h3>
+              <h3 className="font-roboto text-2xl text-muted-foreground mb-4 text-center">CAMINHO A:</h3>
               <p className="text-muted-foreground text-center">
                 Continuar estudando sem direção. Formar-se na média. Levar anos para conquistar o que os bem preparados conquistam em meses.
               </p>
@@ -526,7 +712,7 @@ export default function Home() {
               <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-primary" />
               <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary" />
               
-              <h3 className="font-serif text-2xl text-primary mb-4 text-center">CAMINHO B:</h3>
+              <h3 className="font-roboto text-2xl text-primary mb-4 text-center">CAMINHO B:</h3>
               <p className="text-foreground text-center">
                 Implementar o método. Compreender a engenharia. Tornar-se o estudante que professores reconhecem, bancas aprovam e escritórios valorizam.
               </p>
@@ -535,9 +721,9 @@ export default function Home() {
 
           <div className="text-center mb-10">
             <p className="text-xl text-foreground mb-6">
-              A diferença entre A e B? <strong className="text-primary">31 dias e R$ 97.</strong>
+              A diferença entre A e B? <strong className="font-roboto text-primary">31 dias e R$ 97.</strong>
             </p>
-            <p className="text-lg text-muted-foreground mb-4">
+            <p className="font-roboto text-lg text-muted-foreground mb-4">
               Você tem 5 anos de faculdade pela frente.
             </p>
             <p className="text-lg text-muted-foreground mb-6">
@@ -552,7 +738,7 @@ export default function Home() {
           </div>
 
           <div className="text-center mb-10">
-            <Button asChild variant="cta" className="px-12 py-7 text-base">
+            <Button asChild variant="cta" className="font-roboto px-12 py-7 text-base">
               <Link href={CHECKOUT_URL}>Comece agora</Link>
             </Button>
           </div>
@@ -561,12 +747,37 @@ export default function Home() {
             <p className="text-muted-foreground italic mb-4">
               <strong>P.S.:</strong> Enquanto você pondera, outros que compreendem a importância da preparação já começaram.
             </p>
-            <p className="text-foreground">
+            <p className="font-roboto text-foreground">
               Em 31 dias, a diferença será perceptível.
             </p>
-            <p className="text-primary font-medium">
+            <p className="font-roboto text-primary">
               Em 5 anos, será significativa.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SEÇÃO FAQ */}
+      <section id="faq" className="py-24 px-6 bg-background">
+        <div className="max-w-4xl mx-auto">
+
+          <div className="text-center mb-12">
+            <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">FAQ</p>
+            <h2 className="font-roboto text-3xl md:text-4xl text-foreground mb-6 text-balance">
+              Perguntas Frequentes
+            </h2>
+          </div>
+
+          <div className="space-y-6">
+            {FAQ_ITEMS.map((item) => (
+              <div
+                key={item.question}
+                className="rounded-2xl border border-primary/20 bg-gradient-to-br from-card/80 via-card/60 to-background/60 p-6 shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
+              >
+                <h3 className="text-lg md:text-xl text-foreground font-roboto mb-3">{item.question}</h3>
+                <p className="text-muted-foreground leading-relaxed font-roboto-700">{item.answer}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -577,11 +788,11 @@ export default function Home() {
           <div className="flex flex-col items-center gap-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-px bg-primary" />
-              <span className="font-serif text-xl text-foreground text-center">Guia de 31 Dias do Estudante de Direito Perfeito</span>
+              <span className="font-roboto text-xl text-foreground text-center">Guia de 31 Dias do Estudante de Direito Perfeito</span>
               <div className="w-12 h-px bg-primary" />
             </div>
 
-            <p className="text-muted-foreground text-sm text-center max-w-xl">
+            <p className="font-roboto text-muted-foreground text-sm text-center max-w-xl">
               Um método executável em 31 dias para sair do estudo automático e instalar consciência, método e direção.
             </p>
 
@@ -591,7 +802,7 @@ export default function Home() {
               <Link href="/suporte" className="hover:text-primary transition-colors">Suporte/Contato</Link>
             </div>
 
-            <p className="text-muted-foreground text-sm text-center">
+            <p className="font-roboto text-muted-foreground text-sm text-center">
               &copy; 2026 Todos os direitos reservados.
             </p>
 
