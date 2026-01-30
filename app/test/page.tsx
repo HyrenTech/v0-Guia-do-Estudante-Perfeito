@@ -218,7 +218,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="min-h-screen bg-background scroll-smooth enhanced-page">
+    <main className="min-h-screen bg-background scroll-smooth test-page">
       {/* SEÇÃO 1 - HERO */}
       <section
         id="o-guia"
