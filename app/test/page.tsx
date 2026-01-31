@@ -173,6 +173,8 @@ export default function Home() {
 
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"))
+    const immediate = elements.filter((el) => el.dataset.reveal === "immediate")
+    const deferred = elements.filter((el) => el.dataset.reveal !== "immediate")
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -184,7 +186,11 @@ export default function Home() {
       },
       { threshold: 0.18, rootMargin: "0px 0px -10% 0px" }
     )
-    elements.forEach((el) => observer.observe(el))
+    immediate.forEach((el) => {
+      el.classList.add("is-visible")
+      observer.unobserve(el)
+    })
+    deferred.forEach((el) => observer.observe(el))
     return () => observer.disconnect()
   }, [])
 
@@ -282,14 +288,14 @@ export default function Home() {
 
           <p
             className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-6"
-            data-reveal
-            style={{ "--reveal-delay": "0.32s" } as CSSProperties}
+            data-reveal="immediate"
+            style={{ "--reveal-delay": "0.2s" } as CSSProperties}
           >
             Aprenda a extrair o máximo da faculdade de Direito com o método usado pelos estudantes que se destacam — e construa uma carreira jurídica sólida.
           </p>
 
           {/* CTA */}
-          <div className="mb-8" data-reveal style={{ "--reveal-delay": "0.38s" } as CSSProperties}>
+          <div className="mb-8" data-reveal="immediate" style={{ "--reveal-delay": "0.2s" } as CSSProperties}>
             <Button asChild variant="cta" className="font-roboto text-sm px-10 py-6 cta-depth focus-ring">
               <Link href={CHECKOUT_URL}>Comece agora</Link>
             </Button>
