@@ -204,6 +204,23 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
+    const marquee = document.querySelector<HTMLElement>(".marquee")
+    if (!marquee) return
+    const speedUp = () => marquee.style.setProperty("--marquee-duration", "35s")
+    const slowDown = () => marquee.style.setProperty("--marquee-duration", "150s")
+    marquee.addEventListener("pointerdown", speedUp)
+    marquee.addEventListener("pointerup", slowDown)
+    marquee.addEventListener("pointerleave", slowDown)
+    marquee.addEventListener("pointercancel", slowDown)
+    return () => {
+      marquee.removeEventListener("pointerdown", speedUp)
+      marquee.removeEventListener("pointerup", slowDown)
+      marquee.removeEventListener("pointerleave", slowDown)
+      marquee.removeEventListener("pointercancel", slowDown)
+    }
+  }, [])
+
+  useEffect(() => {
     let timer = window.setTimeout(() => setShowScrollHint(true), 2800)
     const onScroll = () => {
       setShowScrollHint(false)
@@ -914,12 +931,6 @@ export default function Home() {
             <p className="font-roboto text-muted-foreground text-sm text-center max-w-xl">
               Um método executável em 31 dias para sair do estudo automático e instalar consciência, método e direção.
             </p>
-
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
-              <Link href="/privacidade" className="hover:text-primary transition-colors">Política de Privacidade</Link>
-              <Link href="/termos" className="hover:text-primary transition-colors">Termos de Uso</Link>
-              <Link href="/suporte" className="hover:text-primary transition-colors">Suporte/Contato</Link>
-            </div>
 
             <p className="font-roboto text-muted-foreground text-sm text-center">
               &copy; 2026 Todos os direitos reservados.
