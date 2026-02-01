@@ -498,37 +498,51 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {[
               {
-                heading: "SEMANA 1 (Dias 1-7): Consciência",
-                description: "Compreensão da engenharia da faculdade de Direito."
+                week: "Semana 1",
+                title: "Consciência",
+                description: "Compreensão do estudo na faculdade de Direito."
               },
               {
-                heading: "SEMANA 2 (Dias 8-15): Método",
+                week: "Semana 2",
+                title: "Método",
                 description: "Instalação da arquitetura mental adequada."
               },
               {
-                heading: "SEMANA 3 (Dias 16-23): Consolidação",
-                description: "Implementação do sistema que torna conhecimento permanente."
+                week: "Semana 3",
+                title: "Consolidação",
+                description: "Implementação do conhecimento permanente."
               },
               {
-                heading: "SEMANA 4+ (Dias 24-31): Autonomia",
-                description: "Direção própria consolidada. Método que independe de motivação."
+                week: "Semana 4+",
+                title: "Autonomia",
+                description: "Direção própria que independe de motivação."
               }
             ].map((item, i) => (
               <div
                 key={i}
-                className="group relative overflow-hidden rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-card/80 via-card/60 to-background/60 p-6 shadow-[0_10px_30px_rgba(0,0,0,0.25)] lift-on-hover"
+                className="group relative overflow-hidden rounded-3xl border border-primary/15 bg-gradient-to-br from-card/90 via-card/70 to-background/60 p-7 shadow-[0_18px_40px_rgba(0,0,0,0.25)] backdrop-blur-[2px] lift-on-hover"
                 data-reveal
                 style={{ "--reveal-delay": `${0.12 + i * 0.05}s` } as CSSProperties}
               >
                 <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
-                  <div className="absolute -left-10 -bottom-10 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
+                  <div className="absolute -right-12 -top-12 h-28 w-28 rounded-full bg-primary/10 blur-2xl" />
+                  <div className="absolute -left-12 -bottom-12 h-28 w-28 rounded-full bg-primary/10 blur-2xl" />
                 </div>
                 <div className="relative">
-                  <h3 className="font-roboto text-lg text-foreground mb-3 tracking-wide">{item.heading}</h3>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                  <div className="mb-4">
+                    <h3 className="font-roboto text-xl leading-tight">
+                      <span className="text-foreground/95 uppercase tracking-[0.3em]">
+                        {item.week}
+                      </span>
+                      <span className="mx-2 text-primary/70">—</span>
+                      <span className="text-gold-gradient uppercase tracking-[0.22em]">
+                        {item.title}
+                      </span>
+                    </h3>
+                  </div>
+                  <p className="text-[0.95rem] font-semibold leading-relaxed text-foreground">{item.description}</p>
                 </div>
-                <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
               </div>
             ))}
           </div>
@@ -854,7 +868,7 @@ export default function Home() {
               
               <h3 className="font-roboto text-2xl text-primary mb-4 text-center">CAMINHO B:</h3>
               <p className="text-foreground text-center">
-                Implementar o método. Compreender a engenharia. Tornar-se o estudante que professores reconhecem, bancas aprovam e escritórios valorizam.
+                Implementar o método. Compreender o Direito. Tornar-se o estudante que professores reconhecem, bancas aprovam e escritórios valorizam.
               </p>
             </div>
           </div>
