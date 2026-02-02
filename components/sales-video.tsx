@@ -23,10 +23,9 @@ export function SalesVideo({ className }: SalesVideoProps) {
       playlist: videoId,
       iv_load_policy: "3",
       cc_load_policy: "0",
-      disablekb: "1",
       enablejsapi: "1",
     })
-    return `https://www.youtube-nocookie.com/embed/${videoId}?${params.toString()}`
+    return `https://www.youtube.com/embed/${videoId}?${params.toString()}`
   }, [])
 
   const sendCommand = (command: string) => {

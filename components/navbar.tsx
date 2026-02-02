@@ -4,6 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { trackBuyClick } from "@/lib/meta-pixel"
 
 const CHECKOUT_URL = "https://pay.hotmart.com/V103763457H"
 
@@ -49,7 +50,9 @@ export function Navbar() {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button asChild variant="cta" className="text-xs px-6">
-              <Link href={CHECKOUT_URL}>Comece agora</Link>
+              <Link href={CHECKOUT_URL} onClick={() => trackBuyClick("navbar")}>
+                Comece agora
+              </Link>
             </Button>
           </div>
 
@@ -86,7 +89,9 @@ export function Navbar() {
                 </Link>
               ))}
               <Button asChild variant="cta" className="text-xs px-6 mt-2 w-full">
-                <Link href={CHECKOUT_URL}>Comece agora</Link>
+                <Link href={CHECKOUT_URL} onClick={() => trackBuyClick("navbar_mobile")}>
+                  Comece agora
+                </Link>
               </Button>
             </div>
           </div>

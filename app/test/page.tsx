@@ -8,6 +8,7 @@ import { SalesVideo } from "@/components/sales-video"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { trackBuyClick } from "@/lib/meta-pixel"
 
 const CHECKOUT_URL = "https://pay.hotmart.com/V103763457H"
 const MODULE_ACCENTS = [
@@ -251,54 +252,50 @@ export default function Home() {
 
         <div className="relative z-10 text-center max-w-4xl mx-auto">
           <h1
-            className="font-roboto-700 text-3xl md:text-5xl lg:text-6xl text-foreground mb-4 leading-tight text-balance uppercase"
+            className="font-roboto-700 text-[2rem] md:text-[3.05rem] lg:text-[3.9rem] text-foreground mb-4 leading-[1.08] text-balance uppercase"
             data-reveal
             style={{ "--reveal-delay": "0.05s" } as CSSProperties}
           >
-            GUIA DE 31 DIAS DO ESTUDANTE DE DIREITO{" "}
+            TORNE-SE UM ESTUDANTE DE DIREITO{" "}
             <span className="text-gold-gradient font-bold sheen-text">PERFEITO</span>
           </h1>
 
           <p
-            className="text-xl md:text-2xl text-foreground mb-6 leading-tight text-balance"
+            className="text-lg md:text-xl text-foreground mb-6 leading-tight text-balance"
             data-reveal
             style={{ "--reveal-delay": "0.12s" } as CSSProperties}
           >
-            10 minutos por dia para estudar com direção, método e{" "}
-            <span className="text-gold-gradient font-bold sheen-text">autonomia real.</span>
+            Você está desperdiçando sua Faculdade de Direito,{" "}
+            <span className="text-gold-gradient font-bold sheen-text">e nem percebe.</span>
           </p>
 
           {/* Video */}
           <div
-            className="relative w-full max-w-2xl md:max-w-3xl mx-auto"
+            className="relative w-full max-w-2xl md:max-w-2xl mx-auto cursor-pointer"
             data-reveal
             style={{ "--reveal-delay": "0.2s" } as CSSProperties}
           >
-            <SalesVideo className="w-full aspect-video rounded-lg overflow-hidden shadow-2xl mb-4 border border-primary/20 apple-card lift-on-hover" />
-            <div className="video-hint glass-hint">Ativar áudio</div>
+            <SalesVideo className="w-full aspect-video rounded-lg overflow-hidden shadow-2xl mb-4 border border-primary/20 apple-card lift-on-hover cursor-pointer" />
+            <div className="video-hint glass-hint cursor-pointer">Ativar áudio</div>
           </div>
 
           <p
-            className="text-xs text-muted-foreground mb-6"
-            data-reveal
-            style={{ "--reveal-delay": "0.26s" } as CSSProperties}
-          >
-            Clique no vídeo para ativar o áudio.
-          </p>
-
-          <p
-            className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-6"
+            className="text-[0.95rem] md:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed mb-6"
             data-reveal="immediate"
             style={{ "--reveal-delay": "0.2s" } as CSSProperties}
           >
-            Um curso online com 31 aulas em 6 módulos para calouros e intermediários que querem sair do estudo automático e construir uma base sólida na graduação.
+            Aprenda a extrair o máximo da faculdade de Direito,{" "}
+            <strong className="text-foreground">se torne um aluno de destaque</strong> e construa uma base sólida na graduação.
           </p>
 
           {/* CTA */}
           <div className="mb-8" data-reveal="immediate" style={{ "--reveal-delay": "0.2s" } as CSSProperties}>
             <Button asChild variant="cta" className="font-roboto text-sm px-10 py-6 cta-depth focus-ring">
-              <Link href={CHECKOUT_URL}>Comprar agora</Link>
+              <Link href={CHECKOUT_URL} onClick={() => trackBuyClick("hero")}>
+                Comece agora
+              </Link>
             </Button>
+            <p className="mt-3 text-xs italic font-semibold text-muted-foreground">Por apenas R$97</p>
           </div>
 
           {/* Decorative bottom element */}
@@ -335,6 +332,9 @@ export default function Home() {
             <h2 className="font-roboto text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance">
               O Problema Não É Falta de Esforço
             </h2>
+            <p className="text-lg text-muted-foreground" data-reveal style={{ "--reveal-delay": "0.08s" } as CSSProperties}>
+              Sem direção, a faculdade vira um ciclo de provas, resumos e esquecimento.
+            </p>
           </div>
 
           <div className="text-center mb-10" data-reveal style={{ "--reveal-delay": "0.12s" } as CSSProperties}>
@@ -344,7 +344,7 @@ export default function Home() {
                 <span className="text-gold-gradient font-bold">mas sem método.</span>
               </strong>
             </p>
-            <p className="text-lg text-muted-foreground mb-8">O resultado aparece cedo:</p>
+            <p className="text-lg text-muted-foreground mb-8">E o resultado aparece cedo:</p>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto mb-12">
@@ -381,13 +381,7 @@ export default function Home() {
             </blockquote>
           </div>
 
-          <p className="text-center text-lg text-muted-foreground mb-8" data-reveal style={{ "--reveal-delay": "0.16s" } as CSSProperties}>
-            Sem direção, a faculdade vira um ciclo de provas, resumos e esquecimento.
-          </p>
-
-          <p className="text-center text-primary italic text-lg mb-10" data-reveal style={{ "--reveal-delay": "0.2s" } as CSSProperties}>
-            <strong>Agora, vamos ao método.</strong>
-          </p>
+          <div className="mb-10" />
 
         </div>
       </section>
@@ -402,7 +396,7 @@ export default function Home() {
             <h2 className="font-roboto text-3xl md:text-4xl text-foreground mb-4 text-balance">
               Tudo o que Você Aprenderá
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-roboto-700">
+            <p className="text-lg text-muted-foreground max-w-lg mx-auto font-roboto-700">
               Uma visão direta dos temas em 6 módulos e 31 aulas curtas, feitas para caber na sua rotina diária.
             </p>
           </div>
@@ -459,7 +453,7 @@ export default function Home() {
             data-reveal
             style={{ "--reveal-delay": "0.12s" } as CSSProperties}
           >
-            Em 35 anos lecionando na USP, o Prof. Costa Machado identificou <strong className="text-foreground">o padrão que separa</strong> os estudantes que evoluem rápido dos que ficam estagnados.
+            Em 35 anos lecionando na USP, o Prof. Costa Machado identificou <strong className="text-foreground">o padrão que separa os estudantes</strong> que evoluem rápido dos que ficam estagnados.
           </p>
 
           <div className="text-center mb-10" data-reveal style={{ "--reveal-delay": "0.16s" } as CSSProperties}>
@@ -490,8 +484,12 @@ export default function Home() {
             <h2 className="font-roboto text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance">
               Por Que 31 Dias?
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Porque autonomia não nasce de maratonas. Ela nasce de <strong className="text-foreground">prática diária</strong> — curta, consistente e aplicada à sua realidade de faculdade.
+            <p className="text-lg text-muted-foreground max-w-lg mx-auto">
+              <strong className="text-foreground">Porque a </strong>
+              <strong className="text-foreground">
+                <span className="text-gold-gradient">autonomia</span> nasce na prática diária
+              </strong>
+              : curta, consistente e aplicada à sua realidade de faculdade.
             </p>
           </div>
 
@@ -513,7 +511,7 @@ export default function Home() {
                 description: "Transforme informação em conhecimento durável, sem depender da véspera."
               },
               {
-                week: "Semana 4+",
+                week: "Semana 4",
                 title: "Autonomia",
                 description: "Estude com direção própria e mantenha consistência mesmo sem motivação."
               }
@@ -530,11 +528,11 @@ export default function Home() {
                 </div>
                 <div className="relative">
                   <div className="mb-4">
-                    <h3 className="font-roboto text-xl leading-tight">
-                      <span className="text-foreground/95 uppercase tracking-[0.3em]">
+                    <h3 className="font-roboto text-xl leading-tight flex flex-wrap items-baseline gap-2">
+                      <span className="text-foreground/95 uppercase tracking-[0.3em] whitespace-nowrap">
                         {item.week}
                       </span>
-                      <span className="mx-2 text-primary/70">—</span>
+                      <span className="text-foreground/95 tracking-normal -ml-2">:</span>
                       <span className="text-gold-gradient uppercase tracking-[0.22em]">
                         {item.title}
                       </span>
@@ -602,13 +600,11 @@ export default function Home() {
                   { text: "Registra para revisar e consolidar" },
                   { text: "Constrói conhecimento que permanece" },
                   { text: "Estuda com clareza, sem depender de terceiros" },
-                  { text: "Autonomia jurídica: você conduz seu próprio caminho", emphasis: true }
+                  { text: "Autonomia jurídica: você conduz seu próprio caminho" }
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
-                    <span>
-                      {item.emphasis ? <strong className="text-foreground">{item.text}</strong> : item.text}
-                    </span>
+                    <span>{item.text}</span>
                   </li>
                 ))}
               </ul>
@@ -649,11 +645,11 @@ export default function Home() {
 
             <ul className="space-y-3 mb-10 text-left max-w-[280px] mx-auto">
               {[
-                "31 Aulas em 6 Módulos",
                 "Método de 31 Dias",
+                "31 Aulas em 6 Módulos",
                 "Aulas Curtas (~10 min/dia)",
-                "Acesso por 1 Ano",
                 "Certificado de 10 Horas",
+                "Acesso por 1 Ano",
                 "Garantia de 7 Dias"
               ].map((item, i) => (
                 <li key={i} className="flex items-center justify-start gap-3">
@@ -668,11 +664,13 @@ export default function Home() {
               <p className="font-roboto text-5xl text-gold-gradient mb-5">R$ 97</p>
 
               <Button asChild variant="cta" className="font-roboto px-8 py-6 text-sm mb-5 w-full max-w-[260px] mx-auto">
-                <Link href={CHECKOUT_URL}>Comprar agora</Link>
+                <Link href={CHECKOUT_URL} onClick={() => trackBuyClick("offer")}>
+                  Comece agora
+                </Link>
               </Button>
 
               <p className="font-roboto text-xs text-muted-foreground">
-                Compra única no Hotmart • Acesso imediato • Garantia de 7 dias
+                Compra única • Acesso imediato • Garantia de 7 dias
               </p>
             </div>
           </div>
@@ -877,37 +875,23 @@ export default function Home() {
             <p className="text-xl text-foreground mb-6">
               A diferença entre A e B? <strong className="font-roboto text-primary">31 dias e R$ 97.</strong>
             </p>
-            <p className="font-roboto text-lg text-muted-foreground mb-4">
+            <p className="font-roboto text-lg text-muted-foreground mb-2">
               Você tem anos de faculdade pela frente.
             </p>
             <p className="text-lg text-muted-foreground mb-6">
-              O melhor momento para criar método é no começo.
-            </p>
-            <p className="text-primary italic text-lg mb-2">
-              A pergunta não é &ldquo;vale a pena?&rdquo;
-            </p>
-            <p className="text-primary font-medium text-xl mb-6">
-              A pergunta é: &ldquo;quanto eu ganho ao estudar com direção?&rdquo;
+              O melhor momento para começar é <span className="text-gold-gradient font-semibold">agora</span>.
             </p>
           </div>
 
-          <div className="text-center mb-10" data-reveal style={{ "--reveal-delay": "0.1s" } as CSSProperties}>
+          <div className="text-center mb-6" data-reveal style={{ "--reveal-delay": "0.1s" } as CSSProperties}>
             <Button asChild variant="cta" className="font-roboto px-12 py-7 text-base cta-depth focus-ring">
-              <Link href={CHECKOUT_URL}>Comprar agora</Link>
+              <Link href={CHECKOUT_URL} onClick={() => trackBuyClick("final")}>
+                Comece agora
+              </Link>
             </Button>
           </div>
 
-          <div className="text-center border-t border-border pt-10">
-            <p className="text-muted-foreground italic mb-4">
-              <strong>P.S.:</strong> Quanto antes você aplicar o método, mais cedo sente a diferença.
-            </p>
-            <p className="font-roboto text-foreground">
-              Em 31 dias, a mudança já aparece.
-            </p>
-            <p className="font-roboto text-primary">
-              Em 5 anos, ela decide sua trajetória.
-            </p>
-          </div>
+          <div className="text-center mb-10" />
         </div>
       </section>
 
