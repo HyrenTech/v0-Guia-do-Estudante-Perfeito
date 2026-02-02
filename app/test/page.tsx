@@ -766,7 +766,7 @@ export default function Home() {
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
-                    <span>Advogado, parecerista e consultor jurídico</span>
+                    <span className="font-roboto">Advogado, parecerista e consultor jurídico</span>
                   </li>
                 </ul>
 
