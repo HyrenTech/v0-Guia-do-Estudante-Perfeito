@@ -35,20 +35,7 @@ export const metadata: Metadata = {
     "Um método executável em 31 dias para sair do estudo automático e instalar consciência, método e direção na sua formação jurídica.",
   generator: "v0.app",
   icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
+    icon: "/Favicon.png",
     apple: "/apple-icon.png",
   },
 }

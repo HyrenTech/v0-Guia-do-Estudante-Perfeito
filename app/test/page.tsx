@@ -98,26 +98,26 @@ const LESSON_MODULES = [
 const FAQ_ITEMS = [
   {
     question: "Tem garantia? Qual?",
-    answer: "Sim. Garantia total de 7 dias.",
+    answer: "Sim. Garantia incondicional de 7 dias, com reembolso integral.",
   },
   {
     question: "Isso é preparatório para OAB?",
     answer:
-      "Não. O guia é um método para elevar o seu desempenho na graduação e construir autonomia de estudo. Ele pode ajudar indiretamente, mas não substitui um curso preparatório específico para a OAB.",
+      "Não. O Guia é um método para a graduação. Ele pode ajudar indiretamente, mas não substitui um curso preparatório específico para a OAB.",
   },
   {
     question: "Em quanto tempo por dia eu preciso estudar?",
     answer:
-      "As lições foram pensadas para cerca de 10 minutos por dia, com foco em consistência e aplicação diária.",
+      "As lições foram pensadas para cerca de 10 minutos por dia, com foco em consistência.",
   },
   {
     question: "São aulas longas ou curtas?",
-    answer: "Curtas e objetivas, feitas para caber na sua rotina diária sem sobrecarregar.",
+    answer: "Curtas e objetivas, feitas para caber na sua rotina diária sem sobrecarga.",
   },
   {
     question: "O guia é para qual fase da faculdade?",
     answer:
-      "Funciona em qualquer fase. Quanto mais cedo você aplicar o método, maior o impacto — mas ele também serve para quem já está avançado.",
+      "É ideal para calouros e intermediários, mas também funciona para quem já está avançado.",
   },
   {
     question: "Como acesso os vídeos?",
@@ -130,7 +130,7 @@ const FAQ_ITEMS = [
   {
     question: "O certificado é válido para horas complementares?",
     answer:
-      "É um curso livre. Muitas faculdades aceitam como horas complementares, mas isso depende da política de cada instituição.",
+      "É um curso livre com certificado de 10 horas. A aceitação como horas complementares depende da política da sua faculdade.",
   },
   {
     question: "Como emitir o certificado? Ele vem assinado?",
@@ -255,7 +255,7 @@ export default function Home() {
             data-reveal
             style={{ "--reveal-delay": "0.05s" } as CSSProperties}
           >
-            TORNE-SE UM ESTUDANTE DE DIREITO{" "}
+            GUIA DE 31 DIAS DO ESTUDANTE DE DIREITO{" "}
             <span className="text-gold-gradient font-bold sheen-text">PERFEITO</span>
           </h1>
 
@@ -264,8 +264,8 @@ export default function Home() {
             data-reveal
             style={{ "--reveal-delay": "0.12s" } as CSSProperties}
           >
-            Você está desperdiçando sua Faculdade de Direito,{" "}
-            <span className="text-gold-gradient font-bold sheen-text">e nem percebe.</span>
+            10 minutos por dia para estudar com direção, método e{" "}
+            <span className="text-gold-gradient font-bold sheen-text">autonomia real.</span>
           </p>
 
           {/* Video */}
@@ -291,13 +291,13 @@ export default function Home() {
             data-reveal="immediate"
             style={{ "--reveal-delay": "0.2s" } as CSSProperties}
           >
-            Aprenda a extrair o máximo da faculdade de Direito com o método usado pelos estudantes que se destacam — e construa uma carreira jurídica sólida.
+            Um curso online com 31 aulas em 6 módulos para calouros e intermediários que querem sair do estudo automático e construir uma base sólida na graduação.
           </p>
 
           {/* CTA */}
           <div className="mb-8" data-reveal="immediate" style={{ "--reveal-delay": "0.2s" } as CSSProperties}>
             <Button asChild variant="cta" className="font-roboto text-sm px-10 py-6 cta-depth focus-ring">
-              <Link href={CHECKOUT_URL}>Comece agora</Link>
+              <Link href={CHECKOUT_URL}>Comprar agora</Link>
             </Button>
           </div>
 
@@ -333,18 +333,18 @@ export default function Home() {
           <div className="text-center mb-12" data-reveal style={{ "--reveal-delay": "0.05s" } as CSSProperties}>
             <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">O Problema</p>
             <h2 className="font-roboto text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance">
-              O Que Ninguém Te Ensina na Faculdade
+              O Problema Não É Falta de Esforço
             </h2>
           </div>
 
           <div className="text-center mb-10" data-reveal style={{ "--reveal-delay": "0.12s" } as CSSProperties}>
             <p className="text-xl text-foreground font-medium mb-8">
               <strong>
-                A maioria dos estudantes de Direito{" "}
-                <span className="text-gold-gradient font-bold">não sabe como estudar Direito.</span>
+                A maioria se dedica,{" "}
+                <span className="text-gold-gradient font-bold">mas sem método.</span>
               </strong>
             </p>
-            <p className="text-lg text-muted-foreground mb-8">O resultado é previsível:</p>
+            <p className="text-lg text-muted-foreground mb-8">O resultado aparece cedo:</p>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto mb-12">
@@ -382,11 +382,11 @@ export default function Home() {
           </div>
 
           <p className="text-center text-lg text-muted-foreground mb-8" data-reveal style={{ "--reveal-delay": "0.16s" } as CSSProperties}>
-            Os cinco anos da faculdade não comportam improviso, descuido ou estudo desordenado.
+            Sem direção, a faculdade vira um ciclo de provas, resumos e esquecimento.
           </p>
 
           <p className="text-center text-primary italic text-lg mb-10" data-reveal style={{ "--reveal-delay": "0.2s" } as CSSProperties}>
-            <strong>Mas existe um caminho diferente.</strong>
+            <strong>Agora, vamos ao método.</strong>
           </p>
 
         </div>
@@ -403,7 +403,7 @@ export default function Home() {
               Tudo o que Você Aprenderá
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-roboto-700">
-              Uma visão rápida dos temas, organizados por módulos, com lições curtas e diretas para os seus 31 dias.
+              Uma visão direta dos temas em 6 módulos e 31 aulas curtas, feitas para caber na sua rotina diária.
             </p>
           </div>
         </div>
@@ -450,7 +450,7 @@ export default function Home() {
           <div className="text-center mb-12" data-reveal style={{ "--reveal-delay": "0.05s" } as CSSProperties}>
             <p className="text-primary tracking-[0.2em] uppercase text-sm mb-4">A Solução</p>
             <h2 className="font-roboto text-3xl md:text-4xl text-foreground mb-6 leading-tight text-balance">
-              O Que Separa os Estudantes Bem-Sucedidos dos Demais
+              O Que Separa Quem Se Destaca
             </h2>
           </div>
 
@@ -459,12 +459,12 @@ export default function Home() {
             data-reveal
             style={{ "--reveal-delay": "0.12s" } as CSSProperties}
           >
-            Durante 35 anos lecionando na USP — a catedral do Direito brasileiro — o Prof. Costa Machado identificou <strong className="text-foreground">o padrão que distingue</strong> os juristas de excelência daqueles que se perdem no caminho.
+            Em 35 anos lecionando na USP, o Prof. Costa Machado identificou <strong className="text-foreground">o padrão que separa</strong> os estudantes que evoluem rápido dos que ficam estagnados.
           </p>
 
           <div className="text-center mb-10" data-reveal style={{ "--reveal-delay": "0.16s" } as CSSProperties}>
             <p className="text-2xl text-gold-gradient font-roboto">
-              Método certo aplicado desde cedo.
+              Método simples. Aplicação diária.
             </p>
           </div>
 
@@ -491,7 +491,7 @@ export default function Home() {
               Por Que 31 Dias?
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Porque transformação real não vem de maratonas motivacionais de fim de semana. Vem de <strong className="text-foreground">construções diárias</strong> que reprogramam como seu cérebro processa Direito.
+              Porque autonomia não nasce de maratonas. Ela nasce de <strong className="text-foreground">prática diária</strong> — curta, consistente e aplicada à sua realidade de faculdade.
             </p>
           </div>
 
@@ -500,22 +500,22 @@ export default function Home() {
               {
                 week: "Semana 1",
                 title: "Consciência",
-                description: "Compreensão do estudo na faculdade de Direito."
+                description: "Entenda como a faculdade funciona e o que realmente importa no estudo jurídico."
               },
               {
                 week: "Semana 2",
                 title: "Método",
-                description: "Instalação da arquitetura mental adequada."
+                description: "Crie uma rotina simples de estudo, atenção em aula e registro eficiente."
               },
               {
                 week: "Semana 3",
                 title: "Consolidação",
-                description: "Implementação do conhecimento permanente."
+                description: "Transforme informação em conhecimento durável, sem depender da véspera."
               },
               {
                 week: "Semana 4+",
                 title: "Autonomia",
-                description: "Direção própria que independe de motivação."
+                description: "Estude com direção própria e mantenha consistência mesmo sem motivação."
               }
             ].map((item, i) => (
               <div
@@ -574,11 +574,11 @@ export default function Home() {
               <h3 className="font-roboto text-2xl text-muted-foreground mb-6 text-center">ANTES (Você Hoje)</h3>
               <ul className="space-y-4 text-muted-foreground">
                 {[
-                  "Assiste aulas sem saber como prestar atenção",
-                  "Faz anotações que nunca revisita",
-                  "Estuda na véspera e esquece rapidamente",
-                  "Não sabe se está progredindo ou apenas ocupado",
-                  "Depende de motivação constante"
+                  "Assiste aulas sem método de atenção",
+                  "Registra, mas não revisa",
+                  "Estuda por pressão e esquece rápido",
+                  "Confunde esforço com progresso",
+                  "Depende de motivação para continuar"
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-muted-foreground mt-2 rotate-45 shrink-0" />
@@ -595,14 +595,14 @@ export default function Home() {
               <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-primary" />
               <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary" />
               
-              <h3 className="font-roboto text-2xl text-primary mb-6 text-center">DEPOIS (Você Transformado)</h3>
+              <h3 className="font-roboto text-2xl text-primary mb-6 text-center">DEPOIS (Você em 31 Dias)</h3>
               <ul className="space-y-4 text-foreground">
                 {[
-                  { text: "Aproveita cada aula com máxima eficiência" },
-                  { text: "Registra informação que se torna conhecimento durável" },
-                  { text: "Consolida aprendizado enquanto os outros esquecem" },
-                  { text: "Opera com clareza, sem depender de orientação externa" },
-                  { text: "Autonomia jurídica real — você conduz seu próprio caminho", emphasis: true }
+                  { text: "Aproveita cada aula com atenção e direção" },
+                  { text: "Registra para revisar e consolidar" },
+                  { text: "Constrói conhecimento que permanece" },
+                  { text: "Estuda com clareza, sem depender de terceiros" },
+                  { text: "Autonomia jurídica: você conduz seu próprio caminho", emphasis: true }
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
@@ -649,9 +649,9 @@ export default function Home() {
 
             <ul className="space-y-3 mb-10 text-left max-w-[280px] mx-auto">
               {[
-                "31 Vídeos Estratégicos",
-                "6 Módulos de Transformação",
-                "Sistema Completo de Estudo",
+                "31 Aulas em 6 Módulos",
+                "Método de 31 Dias",
+                "Aulas Curtas (~10 min/dia)",
                 "Acesso por 1 Ano",
                 "Certificado de 10 Horas",
                 "Garantia de 7 Dias"
@@ -668,11 +668,11 @@ export default function Home() {
               <p className="font-roboto text-5xl text-gold-gradient mb-5">R$ 97</p>
 
               <Button asChild variant="cta" className="font-roboto px-8 py-6 text-sm mb-5 w-full max-w-[260px] mx-auto">
-                <Link href={CHECKOUT_URL}>Comece agora</Link>
+                <Link href={CHECKOUT_URL}>Comprar agora</Link>
               </Button>
 
               <p className="font-roboto text-xs text-muted-foreground">
-                Acesso imediato • Transformação em 31 dias • Autonomia para toda a carreira
+                Compra única no Hotmart • Acesso imediato • Garantia de 7 dias
               </p>
             </div>
           </div>
@@ -706,8 +706,8 @@ export default function Home() {
                 Garantia de 7 Dias
               </h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Você pode acessar o produto, assistir as aulas, ler o manual e, se não ficar satisfeito, basta solicitar o reembolso e devolveremos todo seu dinheiro —{" "}
-                <strong className="text-gold-gradient font-semibold">sem perguntas.</strong>
+                Assista às aulas, aplique o método e decida com calma. Se não for para você, solicite o reembolso dentro de 7 dias e devolvemos{" "}
+                <strong className="text-gold-gradient font-semibold">100% do valor.</strong>
               </p>
             </div>
           </div>
@@ -754,15 +754,15 @@ export default function Home() {
                 <ul className="space-y-3 text-muted-foreground mb-8">
                   <li className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
-                    <span className="font-roboto">Professor da Faculdade de Direito do Largo São Francisco (USP) — 1984 a 2019</span>
+                    <span className="font-roboto">Professor da Faculdade de Direito do Largo São Francisco (USP) por 35 anos</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
-                    <span className="font-roboto">Professor do Mestrado em Direitos Fundamentais (UNIFIEO) — 2000 a 2020</span>
+                    <span className="font-roboto">Docência em pós-graduação e mestrado em Direito (UNIFIEO)</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
-                    <span className="font-roboto">Coordenador de Processo Civil (EPD) — 2008 a 2013</span>
+                    <span className="font-roboto">Atuação acadêmica e coordenação em Processo Civil (EPD)</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-primary mt-2 rotate-45 shrink-0" />
@@ -771,13 +771,13 @@ export default function Home() {
                 </ul>
 
                 <p className="text-muted-foreground text-center md:text-left mb-4">
-                  Ele acompanhou a formação de milhares de alunos. Os que se destacaram e os que ficaram pelo caminho.
+                  Ao longo de décadas de sala de aula, ele viu o que funciona — e o que não funciona — para quem quer dominar o Direito na graduação.
                 </p>
                 <p className="text-primary italic text-center md:text-left font-medium mb-2">
-                  E identificou exatamente o que distingue os dois grupos.
+                  O Guia organiza esse caminho em passos diários.
                 </p>
                 <p className="text-muted-foreground text-center md:text-left">
-                  Este Guia é esse conhecimento organizado em forma aplicável.
+                  É método aplicado, não teoria solta.
                 </p>
               </div>
             </div>
@@ -822,7 +822,7 @@ export default function Home() {
           </div>
 
           <p className="text-center text-muted-foreground italic" data-reveal style={{ "--reveal-delay": "0.12s" } as CSSProperties}>
-            Esses relatos refletem transformações concretas em aprovações, carreiras e domínio técnico.
+            Relatos de alunos e participantes das aulas e palestras do professor.
           </p>
         </div>
       </section>
@@ -851,7 +851,7 @@ export default function Home() {
               
               <h3 className="font-roboto text-2xl text-muted-foreground mb-4 text-center">CAMINHO A:</h3>
               <p className="text-muted-foreground text-center">
-                Continuar estudando sem direção. Formar-se na média. Levar anos para conquistar o que os bem preparados conquistam em meses.
+                Continuar sem método. Viver de véspera. Formar-se com uma base frágil e correr atrás do prejuízo depois.
               </p>
             </div>
 
@@ -868,7 +868,7 @@ export default function Home() {
               
               <h3 className="font-roboto text-2xl text-primary mb-4 text-center">CAMINHO B:</h3>
               <p className="text-foreground text-center">
-                Implementar o método. Compreender o Direito. Tornar-se o estudante que professores reconhecem, bancas aprovam e escritórios valorizam.
+                Aplicar o método. Estudar com direção. Construir uma base sólida que abre portas na graduação e no início da carreira.
               </p>
             </div>
           </div>
@@ -878,34 +878,34 @@ export default function Home() {
               A diferença entre A e B? <strong className="font-roboto text-primary">31 dias e R$ 97.</strong>
             </p>
             <p className="font-roboto text-lg text-muted-foreground mb-4">
-              Você tem 5 anos de faculdade pela frente.
+              Você tem anos de faculdade pela frente.
             </p>
             <p className="text-lg text-muted-foreground mb-6">
-              Cada dia sem método é tempo e investimento desperdiçados.
+              O melhor momento para criar método é no começo.
             </p>
             <p className="text-primary italic text-lg mb-2">
               A pergunta não é &ldquo;vale a pena?&rdquo;
             </p>
             <p className="text-primary font-medium text-xl mb-6">
-              A pergunta é: &ldquo;quanto estou perdendo ao não fazer isso?&rdquo;
+              A pergunta é: &ldquo;quanto eu ganho ao estudar com direção?&rdquo;
             </p>
           </div>
 
           <div className="text-center mb-10" data-reveal style={{ "--reveal-delay": "0.1s" } as CSSProperties}>
             <Button asChild variant="cta" className="font-roboto px-12 py-7 text-base cta-depth focus-ring">
-              <Link href={CHECKOUT_URL}>Comece agora</Link>
+              <Link href={CHECKOUT_URL}>Comprar agora</Link>
             </Button>
           </div>
 
           <div className="text-center border-t border-border pt-10">
             <p className="text-muted-foreground italic mb-4">
-              <strong>P.S.:</strong> Enquanto você pondera, outros que compreendem a importância da preparação já começaram.
+              <strong>P.S.:</strong> Quanto antes você aplicar o método, mais cedo sente a diferença.
             </p>
             <p className="font-roboto text-foreground">
-              Em 31 dias, a diferença será perceptível.
+              Em 31 dias, a mudança já aparece.
             </p>
             <p className="font-roboto text-primary">
-              Em 5 anos, será significativa.
+              Em 5 anos, ela decide sua trajetória.
             </p>
           </div>
         </div>
