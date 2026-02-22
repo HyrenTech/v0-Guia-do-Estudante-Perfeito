@@ -28,3 +28,12 @@ Continue building your app on:
 2. Deploy your chats from the v0 interface
 3. Changes are automatically pushed to this repository
 4. Vercel deploys the latest version from this repository
+
+## Internal Ads Ops (Fase 1)
+
+Foi adicionada uma base de app interno para operação de mídia com Meta Ads + Hotmart.
+
+- Docs de setup: `docs/internal-ads-phase1.md`
+- Migrações SQL: `db/migrations/001_phase1_internal_ads.sql`
+- Comando de migração: `pnpm db:migrate`
+- UI interna: `/internal/dashboard`
